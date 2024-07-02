@@ -1,0 +1,72 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --clr-primary-400: #0065f2;
+
+  --clr-light: #ffffff;
+
+  --clr-dark-800: #00132f;
+
+  --ff-primary: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2.5rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-700);
+  --fs-secondary-heading: var(--fs-600);
+  --fs-nav: var(--fs-400);
+  --fs-button: var(--fs-400);
+}
+
+@media (min-width: 50em) {
+  :root {
+    --fs-body: var(--fs-400);
+  }
+}
+
+/* Utils */
+.text-primary-400 {
+  color: var(--clr-primary-400);
+}
+
+.bg-primary-400 {
+  color: var(--clr-primary-400);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+.fs-primary-heading {
+  font-size: var(--fs-primary-headihng);
+}
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+}
+
+.fs-sm {
+  font-size: var(--fs-300);
+}
+.fs-regular {
+  font-size: var(--fs-400);
+}
+.fs-lg {
+  font-size: var(--fs-500);
+}
