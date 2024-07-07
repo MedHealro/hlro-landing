@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
 </script>
 
 <template>
@@ -15,11 +18,15 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/">聯絡我們</RouterLink>
         </ul>
       </nav>
-      <button class="button">取得演示</button>
+      <button class="button" @click="router.push('demo')">預約產品說明</button>
     </div>
   </header>
 
   <RouterView />
+
+  <footer>
+    <div class="container">Footer Placeholder</div>
+  </footer>
 </template>
 
 <style scoped>
