@@ -1,10 +1,18 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --clr-primary-400: #0065f2;
+  --clr-primary-100: hsl(215, 100%, 95%);
+  --clr-primary-300: hsl(215, 100%, 73%);
+  --clr-primary-400: hsl(215, 100%, 47%);
 
-  --clr-light: #ffffff;
+  --clr-light: hsl(0, 0%, 100%);
+  --clr-light-200: hsl(0, 0%, 90%);
 
-  --clr-dark-800: #00132f;
+  --clr-dark-400: hsl(0, 0%, 75%);
+  --clr-dark-600: hsl(0, 0%, 35%);
+  --clr-dark-800: hsl(216, 100%, 9%);
+  --clr-dark-900: hsl(0, 0%, 0%);
+
+  /* --size-600:  */
 
   --ff-primary: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
     'Lucida Grande', sans-serif;
@@ -36,6 +44,16 @@
 }
 
 /* Utils */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .text-primary-400 {
   color: var(--clr-primary-400);
 }
@@ -55,9 +73,11 @@
 }
 
 .fs-primary-heading {
-  font-size: var(--fs-primary-headihng);
+  line-height: 1.1;
+  font-size: var(--fs-primary-heading);
 }
 .fs-secondary-heading {
+  line-height: 1.1;
   font-size: var(--fs-secondary-heading);
 }
 
@@ -69,4 +89,35 @@
 }
 .fs-lg {
   font-size: var(--fs-500);
+}
+
+.container,
+.section {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.split {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+}
+
+@media (max-width: 50em) {
+  .split {
+    grid-auto-flow: row;
+    /* grid-template-columns: repeat(1, 1fr); */
+  }
 }

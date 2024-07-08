@@ -1,2 +1,37 @@
 @import './reset.css';
 @import './base.css';
+
+/* general styling */
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+}
+
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  padding: 0.9em 1.8em;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-light);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  line-height: 1;
+  /* box-shadow: 0em 0.3em 0.3em 0em var(--clr-primary-300); */
+}
+
+.button[data-type='inverted'] {
+  background-color: var(--clr-light);
+  color: var(--clr-primary-400);
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--clr-primary-300);
+}
+
+.button[data-type='inverted']:hover,
+.button[data-type='inverted']:focus-visible {
+  color: var(--clr-primary-300);
+}
