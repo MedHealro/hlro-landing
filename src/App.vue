@@ -2,6 +2,9 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 
+import Modal from '@/components/Modal.vue'
+import MainFooter from '@/components/MainFooter.vue'
+
 const showMobileNav = ref(false)
 
 const toggleMobileNav = () => {
@@ -18,7 +21,7 @@ const toggleMobileNav = () => {
       <button
         class="mobile-nav-toggle"
         :class="{ show: !showMobileNav }"
-        aria-controls="primary-navigation"
+        aria-controls="primary-navigation-mobile"
         :aria-expanded="showMobileNav"
         @click="toggleMobileNav"
       >
@@ -35,8 +38,8 @@ const toggleMobileNav = () => {
         </template>
         <span class="visually-hidden">Menu</span>
       </button>
-      <nav class="primary-nav" :class="{ 'primary-nav-opened': showMobileNav }">
-        <ul role="list" class="nav-list" id="primary-navigation">
+      <nav class="primary-nav">
+        <ul role="list" class="nav-list">
           <RouterLink :to="{ path: '/', hash: '#solutions' }" class="nav-item">解決方案</RouterLink>
           <RouterLink :to="{ path: '/', hash: '#about' }" class="nav-item">關於我們</RouterLink>
           <RouterLink :to="{ path: '/', hash: '#team' }" class="nav-item">團隊介紹</RouterLink>
@@ -45,14 +48,31 @@ const toggleMobileNav = () => {
           >
         </ul>
       </nav>
+      <Modal v-model:visible="showMobileNav">
+        <nav class="primary-nav-mobile">
+          <ul
+            role="list"
+            class="nav-list"
+            id="primary-navigation-mobile"
+            @click="showMobileNav = false"
+          >
+            <RouterLink :to="{ path: '/', hash: '#solutions' }" class="nav-item"
+              >解決方案</RouterLink
+            >
+            <RouterLink :to="{ path: '/', hash: '#about' }" class="nav-item">關於我們</RouterLink>
+            <RouterLink :to="{ path: '/', hash: '#team' }" class="nav-item">團隊介紹</RouterLink>
+            <RouterLink :to="{ path: '/', hash: '#contact-us' }" class="nav-item"
+              >聯絡我們</RouterLink
+            >
+          </ul>
+        </nav>
+      </Modal>
     </div>
   </header>
 
   <RouterView />
 
-  <footer>
-    <div class="container">Footer Placeholder</div>
-  </footer>
+  <MainFooter></MainFooter>
 </template>
 
 <style scoped>
@@ -61,18 +81,27 @@ const toggleMobileNav = () => {
   height: 4rem;
 }
 
+.primary-header {
+  margin-top: var(--spacing-100);
+}
+
 .nav-wrapper {
   display: flex;
   align-items: center;
 }
 
+.primary-nav {
+  padding: var(--spacing-300);
+}
+
 .nav-list {
   font-size: var(--fs-nav);
+  display: flex;
+  gap: var(--spacing-400);
 }
 
 .nav-item {
   text-decoration: none;
-  color: var(--clr-light);
 }
 
 .mobile-nav-toggle {
@@ -81,26 +110,35 @@ const toggleMobileNav = () => {
 
 @media (max-width: 50em) {
   .primary-header {
-    margin-top: 2rem;
+    margin-top: var(--spacing-400);
   }
 
+  /* hide desktop nav */
   .primary-nav {
     display: none;
   }
 
-  .primary-nav-opened {
-    display: block;
-    position: fixed;
-    padding: 3rem;
+  .primary-nav-mobile {
+    position: absolute;
+    padding: var(--spacing-500);
     inset: 6.5rem 1.5rem auto;
-    background: var(--clr-dark-600);
+    background: var(--clr-light);
   }
 
   .nav-list {
     display: grid;
-    gap: 1.5rem;
+    gap: var(--spacing-400);
     text-align: center;
     font-weight: var(--fw-bold);
+  }
+
+  .nav-item {
+    color: var(--clr-primary-400);
+  }
+
+  .nav-item:hover,
+  .nav-item:focus {
+    color: var(--clr-primary-300);
   }
 
   .nav-wrapper {
