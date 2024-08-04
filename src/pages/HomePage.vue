@@ -49,7 +49,7 @@ const members = [
           <button class="button hero-button" @click="router.push('demo')">預約產品說明</button>
         </div>
         <div>
-          <img src="@/assets/imgs/tub.svg" alt="" />
+          <img src="@/assets/imgs/translate_ui.png" alt="" />
         </div>
       </div>
     </section>
@@ -126,6 +126,10 @@ const members = [
 </template>
 
 <style scoped>
+.split {
+  grid-auto-columns: 1fr 2.5fr;
+}
+
 .hero-description,
 .hero-button {
   margin-top: var(--spacing-400);
@@ -143,7 +147,7 @@ const members = [
 }
 
 .fs-secondary-heading {
-  margin-bottom: var(--spacing-300);
+  margin-bottom: var(--spacing-400);
 }
 
 .members-content {
