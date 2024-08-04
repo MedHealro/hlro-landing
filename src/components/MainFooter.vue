@@ -3,9 +3,10 @@
 <template>
   <div class="container footer">
     <nav class="footer-nav">
-      <RouterLink :to="{ path: '/' }" class="nav-item">
-        <img alt="logo" class="logo" src="@/assets/imgs/rubber-duck.svg"
-      /></RouterLink>
+      <!-- <RouterLink :to="{ path: '/' }" class="nav-item">
+        <img alt="logo" class="logo" src="@/assets/imgs/healro-logo.svg"
+      /></RouterLink> -->
+      <div></div>
       <div class="company-terms">
         <div>© 2023-2024 資慧科技股份有限公司</div>
         <div>服務條款</div>

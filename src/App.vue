@@ -81,8 +81,11 @@ const toggleMobileNav = () => {
   height: 7rem;
 }
 
-.primary-header {
-  margin-top: var(--spacing-100);
+.primary-header {  
+  z-index: 99;
+  position: sticky;
+  top: 0;
+  background-color: var(--clr-light);
 }
 
 .nav-wrapper {
