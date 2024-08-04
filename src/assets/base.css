@@ -1,5 +1,11 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  /* 
+    from figma:
+    black - 333333
+    navy - 24528E
+    gold - B8922F
+  */
   --clr-primary-100: hsl(215, 100%, 95%);
   --clr-primary-300: hsl(215, 100%, 73%);
   --clr-primary-400: hsl(215, 100%, 47%);
@@ -12,6 +18,8 @@
   --clr-dark-600: hsl(0, 0%, 35%);
   --clr-dark-800: hsl(216, 100%, 9%);
   --clr-dark-900: hsl(0, 0%, 0%);
+
+  --clr-accent-400: hsl(43.4, 59.3%, 45.3%);
 
   /* --size-600:  */
 
@@ -124,6 +132,7 @@
 }
 
 .split {
+  width: 100%;
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;

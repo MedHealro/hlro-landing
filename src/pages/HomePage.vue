@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
+import { ref } from 'vue'
 
 const router = useRouter()
 
@@ -40,31 +41,44 @@ const members = [
 <template>
   <main>
     <section class="section">
-      <div class="split">
+      <div class="split hero">
         <div>
-          <h1 class="fs-primary-heading">Medium length display headline</h1>
+          <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
           <p class="hero-description">
-            車せろあ紙出ソメキ時読イメラ専軍ぴ道名リヨ保新えさッ側料りらル地掲ド演日ヒセヘコ禁工ニメ識権ひ当要ヘモワラ議関ぶき午包す
+            透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
+            應用生態接軌，達成資料實務及臨床應用。
           </p>
           <button class="button hero-button" @click="router.push('demo')">預約產品說明</button>
         </div>
         <div>
-          <img src="@/assets/imgs/translate_ui.png" alt="" />
+          <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
         </div>
       </div>
     </section>
     <section id="solutions" class="section solutions">
       <h2 class="fs-secondary-heading">解決方案</h2>
       <div class="solutions-content">
-        <div>轉換引擎</div>
-        <div>AI醫療</div>
-        <div>智慧醫院</div>
+        <div class="solution-item">
+          <h2 class="solution-item-title">轉換引擎</h2>
+          <div class="solution-item-desc">
+            解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
+            開發及維護所帶來的作業負擔。
+          </div>
+        </div>
+        <div class="solution-item">
+          <h2 class="solution-item-title">FHIR實務及臨床應用</h2>
+          <div class="solution-desc">
+            導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
+          </div>
+        </div>
       </div>
     </section>
     <section id="about" class="section members">
       <h2 class="fs-secondary-heading">關於我們</h2>
       <p>
-        最典型的答案，當然是行政院院長。法律學者會叫你找出憲法第五十三條：「行政院為國家最高行政機關。」並且指給你看，司法院大法官在2006年針對〈通傳會組織法〉作出的釋字第六一三號解釋提到：「憲法第五十三條明定行政院為國家最高行政機關，其目的在於維護行政一體，使所有國家之行政事務，除憲法別有規定外，均納入以行政院為金字塔頂端之層級式行政體制掌理，經由層級節制，最終並均歸由位階最高之行政院之指揮監督。」大法官認為，如此一來行政院對立法院負責，才符合責任政治的原理。
+        我們是發源於醫學中心的醫療資訊團隊，致力於建構便捷醫療資訊系統與醫療資料的應用。隨著電子健康記錄（EHR）系統的普及，大量醫療資料被創建，但由於格式不統一和系統不兼容，這些資料的價值受限，造成資訊孤島，影響資料的有效利用和跨機構共享。
+        FHIR（快速醫療資訊資源）標準是解決資料互通性問題的關鍵，但將非FHIR格式資料轉換為FHIR格式是一項技術挑戰。我們開發了「醫療資料智慧互通平台：生成式AI
+        FHIR轉換引擎」，自動且準確地將各種格式的醫療資料轉換為FHIR格式，提升資料利用率，促進資料共享，並提升醫療產業的服務質量和效率。我們旨在提供快速、準確、無縫的資料轉換解決方案，推動醫療行業進步。
       </p>
     </section>
     <section id="team" class="section">
@@ -83,7 +97,7 @@ const members = [
       <h2 class="fs-secondary-heading">聯絡我們</h2>
       <div class="split">
         <div class="contact-item">
-          <form action="" method="get" class="form-example">
+          <!-- <form action="" method="get" class="form-example">
             <div class="form-example">
               <label for="name">Enter your name: </label>
               <input type="text" name="name" id="name" required />
@@ -95,7 +109,54 @@ const members = [
             <div class="form-example">
               <input type="submit" value="Contact!" />
             </div>
-          </form>
+          </form> -->        
+          <FormKit 
+            type="form" 
+            :actions="false"
+            #default="{ value }"
+          >
+            <FormKit
+              type="text"
+              name="company-name"
+              id="company-name"
+              validation="required"
+              label="公司名稱"
+              help="請輸入您的公司名稱"
+              placeholder=""
+            />
+
+            <FormKit
+              type="text"
+              name="name"
+              id="name"
+              validation="required|not:Admin"
+              label="姓名"
+              help="請輸入您的姓名"
+              placeholder=""
+            /> 
+
+            <FormKit
+              name="email"
+              type="email"
+              label="Email"
+              help="請輸入您的聯絡Email"
+              validation="required|email"
+            />
+
+            <FormKit
+              type="textarea"
+              name="message"
+              label="Message"
+              placeholder=""
+              :help="`${value.message ? value.message.length : 0} / 120`"
+              validation="length:0,120"
+              :validation-messages="{
+                length: '輸入上限為120字',
+              }"
+            />
+            
+            <button class="button" type="submit">送出</button>          
+          </FormKit>
         </div>
         <div class="contact-item">
           <img class="location" src="@/assets/imgs/usa-il.svg" alt="" />
@@ -126,8 +187,14 @@ const members = [
 </template>
 
 <style scoped>
-.split {
-  grid-auto-columns: 1fr 2.5fr;
+.split.hero {
+  grid-auto-columns: 1fr 2fr;
+  gap: 5%;
+}
+
+.hero-img {
+  border: 0.3rem solid var(--clr-accent-400);
+  border-radius: 0.25em;
 }
 
 .hero-description,
@@ -142,8 +209,18 @@ const members = [
 
 .solutions-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.solution-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.solution-item-title {
+  margin-bottom: var(--spacing-300);
 }
 
 .fs-secondary-heading {
@@ -188,5 +265,19 @@ const members = [
 
 .contact-icon {
   width: 1.5em;
+}
+
+@media (max-width: 50em) {
+  .solutions-content {
+    flex-direction: column;
+  }
+
+  .solution-item {
+    max-width: 100%;
+  }
+
+  .split.hero {
+    gap: 10%;
+  }
 }
 </style>

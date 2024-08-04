@@ -16,7 +16,7 @@ const toggleMobileNav = () => {
   <header class="primary-header">
     <div class="container nav-wrapper">
       <RouterLink to="/">
-        <img alt="logo" class="logo" src="@/assets/imgs/rubber-duck.svg" />
+        <img alt="logo" class="logo" src="@/assets/imgs/healro-logo.svg" />
       </RouterLink>
       <button
         class="mobile-nav-toggle"
@@ -77,8 +77,8 @@ const toggleMobileNav = () => {
 
 <style scoped>
 .logo {
-  width: 4rem;
-  height: 4rem;
+  width: 7rem;
+  height: 7rem;
 }
 
 .primary-header {
@@ -92,12 +92,13 @@ const toggleMobileNav = () => {
 
 .primary-nav {
   padding: var(--spacing-300);
+  margin-top: 0.5rem;
 }
 
 .nav-list {
   font-size: var(--fs-nav);
   display: flex;
-  gap: var(--spacing-400);
+  gap: var(--spacing-400);  
 }
 
 .nav-item {
