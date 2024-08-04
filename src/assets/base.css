@@ -110,7 +110,7 @@
 
 .container,
 .section {
-  --max-width: 1150px;
+  --max-width: 1200px;
   width: min(var(--max-width), 100% - (var(--spacing-300) * 2));
   margin-inline: auto;
   padding: var(--spacing-300) var(--spacing-300);

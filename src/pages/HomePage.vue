@@ -36,6 +36,17 @@ const members = [
     portrait: ''
   }
 ]
+
+const axios = {
+  post: () => new Promise(r => setTimeout(r, 2000))
+}
+
+const submitForm = async (formData) => {
+  console.log(formData)
+  const res = await axios.post(formData)
+  // submit form
+  alert('Form submitted!')
+}
 </script>
 
 <template>
@@ -96,24 +107,12 @@ const members = [
     <section id="contact-us" class="section">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
       <div class="split">
-        <div class="contact-item">
-          <!-- <form action="" method="get" class="form-example">
-            <div class="form-example">
-              <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
-            </div>
-            <div class="form-example">
-              <label for="email">Enter your email: </label>
-              <input type="email" name="email" id="email" required />
-            </div>
-            <div class="form-example">
-              <input type="submit" value="Contact!" />
-            </div>
-          </form> -->        
+        <div class="contact-item">       
           <FormKit 
             type="form" 
             :actions="false"
             #default="{ value }"
+            @submit="submitForm"
           >
             <FormKit
               type="text"
@@ -146,7 +145,7 @@ const members = [
             <FormKit
               type="textarea"
               name="message"
-              label="Message"
+              label="需求描述"
               placeholder=""
               :help="`${value.message ? value.message.length : 0} / 120`"
               validation="length:0,120"
