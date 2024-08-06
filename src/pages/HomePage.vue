@@ -70,6 +70,7 @@ const submitForm = async (formData) => {
       </div>
     </section>
     <section id="solutions" class="solutions-section engine">
+      <h2 class="fs-secondary-heading solutions-title">解決方案</h2>
       <div class="split solution-split">
         <div class="solution-content">
           <h2 class="solution-item-title">轉換引擎</h2>
@@ -242,8 +243,13 @@ const submitForm = async (formData) => {
   margin-top: var(--spacing-600);
 }
 
+.solutions-title {
+  padding: var(--spacing-600);
+  padding-bottom: 0;
+}
+
 .solution-split {
-  padding-top: var(--spacing-500);
+  /* padding-top: var(--spacing-500); */
 }
 
 .engine {
