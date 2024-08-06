@@ -90,6 +90,7 @@ const toggleMobileNav = () => {
 }
 
 .nav-wrapper {
+  color: var(--clr-primary-400);
   display: flex;
   align-items: center;
 }
