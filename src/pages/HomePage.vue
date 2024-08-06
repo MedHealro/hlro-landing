@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
 import { ref } from 'vue'
+import ContactUs from '@/components/ContactUs.vue'
 
 const router = useRouter()
 
@@ -38,7 +39,7 @@ const members = [
 ]
 
 const axios = {
-  post: () => new Promise(r => setTimeout(r, 2000))
+  post: () => new Promise((r) => setTimeout(r, 2000))
 }
 
 const submitForm = async (formData) => {
@@ -59,31 +60,69 @@ const submitForm = async (formData) => {
             透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
             應用生態接軌，達成資料實務及臨床應用。
           </p>
-          <button class="button hero-button" @click="router.push('demo')">預約產品說明</button>
+          <button class="button hero-button" @click="router.push('#contact-us')">
+            預約產品說明
+          </button>
         </div>
         <div>
           <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
         </div>
       </div>
     </section>
-    <section id="solutions" class="section solutions">
-      <h2 class="fs-secondary-heading">解決方案</h2>
-      <div class="solutions-content">
-        <div class="solution-item">
+    <section id="solutions" class="solutions-section engine">
+      <div class="split solution-split">
+        <div class="solution-content">
           <h2 class="solution-item-title">轉換引擎</h2>
-          <div class="solution-item-desc">
+          <div class="solution-desc">
             解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
             開發及維護所帶來的作業負擔。
           </div>
         </div>
-        <div class="solution-item">
-          <h2 class="solution-item-title">FHIR實務及臨床應用</h2>
+        <div class="solution-image engine-img">
+          <img class="" src="@/assets/imgs/translate-engine.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <section class="solutions-section applied">
+      <div class="split solution-split">
+        <div class="solution-image applied-img hide-desktop">
+          <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
+        </div>
+        <div class="solution-content">
+          <h2 class="solution-item-title">FHIR資料實務應用</h2>
           <div class="solution-desc">
             導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
           </div>
         </div>
+        <div class="solution-image applied-img hide-mobile">
+          <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
+        </div>
       </div>
     </section>
+    <!-- <section id="solutions" class="section solutions">
+      <h2 class="fs-secondary-heading solutions-title">解決方案</h2>
+      <div class="solutions-content">
+        <div class="solution-item">
+          <h2 class="solution-item-title fs-lg">轉換引擎</h2>
+          <div class="solution-item-desc">
+            解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
+            開發及維護所帶來的作業負擔。
+          </div>
+          <div class="engine-img-wrapper">
+            <img class="solutions-img-engine" src="@/assets/imgs/translate-engine.png" alt="" />
+          </div>
+        </div>
+        <div class="solution-item">
+          <h2 class="solution-item-title fs-lg">FHIR資料實務應用</h2>
+          <div class="solution-desc">
+            導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
+          </div>
+          <div class="solutions-img-wrapper">
+            <img class="solutions-img-applied" src="@/assets/imgs/applied-solutions.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section> -->
     <section id="about" class="section members">
       <h2 class="fs-secondary-heading">關於我們</h2>
       <p>
@@ -106,14 +145,10 @@ const submitForm = async (formData) => {
     </section>
     <section id="contact-us" class="section">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
-      <div class="split">
-        <div class="contact-item">       
-          <FormKit 
-            type="form" 
-            :actions="false"
-            #default="{ value }"
-            @submit="submitForm"
-          >
+      <ContactUs />
+      <!-- <div class="split">
+        <div class="contact-item">
+          <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">
             <FormKit
               type="text"
               name="company-name"
@@ -132,7 +167,7 @@ const submitForm = async (formData) => {
               label="姓名"
               help="請輸入您的姓名"
               placeholder=""
-            /> 
+            />
 
             <FormKit
               name="email"
@@ -150,11 +185,11 @@ const submitForm = async (formData) => {
               :help="`${value.message ? value.message.length : 0} / 120`"
               validation="length:0,120"
               :validation-messages="{
-                length: '輸入上限為120字',
+                length: '輸入上限為120字'
               }"
             />
-            
-            <button class="button" type="submit">送出</button>          
+
+            <button class="button" type="submit">送出</button>
           </FormKit>
         </div>
         <div class="contact-item">
@@ -180,12 +215,61 @@ const submitForm = async (formData) => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </section>
   </main>
 </template>
 
 <style scoped>
+.hide-mobile {
+  display: none;
+}
+
+.engine-img-wrapper {
+  margin-top: 22px;
+}
+
+/* .solutions-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 46px;
+  background-color: var(--clr-light);
+  height: 286.84px;
+} */
+
+.solutions-section {
+  margin-top: var(--spacing-600);
+}
+
+.solution-split {
+  padding-top: var(--spacing-500);
+}
+
+.engine {
+  border-top: 10px solid var(--clr-primary-400);
+}
+
+.solution-desc {
+  position: relative;
+  padding-bottom: var(--spacing-500);
+  /* border-bottom: 2px solid var(--clr-accent-400); */
+}
+
+.solution-desc::after {
+  content: '';
+  position: absolute;
+  left: 1%;
+  bottom: 0;
+  height: 1px;
+  width: 95%;
+  border-bottom: 2px solid var(--clr-accent-400);
+}
+
+.section {
+  scroll-margin-top: -144px;
+}
+
 .split.hero {
   grid-auto-columns: 1fr 2fr;
   gap: 5%;
@@ -201,29 +285,36 @@ const submitForm = async (formData) => {
   margin-top: var(--spacing-400);
 }
 
-.solutions {
-  background-color: aquamarine;
+.solution-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: var(--spacing-600);
 }
 
-.solutions-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 3rem;
+.solution-image {
+  /* border: solid 1px black; */
+  background-color: var(--clr-light);
+  /* padding: 1rem; */
 }
 
-.solution-item {
-  display: flex;
-  flex-direction: column;
-  max-width: 50%;
+.engine-img {
+  padding-right: var(--spacing-300);
+  padding-left: 1.25rem;
+}
+
+.applied-img {
+  padding-top: var(--spacing-600);
+  padding-left: var(--spacing-600);
 }
 
 .solution-item-title {
+  font-size: var(--fs-600);
   margin-bottom: var(--spacing-300);
 }
 
 .fs-secondary-heading {
-  margin-bottom: var(--spacing-400);
+  margin-bottom: var(--spacing-500);
 }
 
 .members-content {
@@ -277,6 +368,29 @@ const submitForm = async (formData) => {
 
   .split.hero {
     gap: 10%;
+  }
+
+  .hide-desktop {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+
+  .solution-split {
+    padding-top: 0;
+  }
+
+  .engine-img {
+    padding-right: 0;
+    padding-left: 2rem;
+  }
+
+  .applied-img {
+    padding-top: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 </style>

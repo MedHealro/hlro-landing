@@ -7,8 +7,11 @@ const router = createRouter({
     if (to.hash) {
       return {
         el: to.hash,
+        top: 144,
         behavior: 'smooth'
       }
+    } else {
+      return { top: 0, left: 0, behavior: 'smooth' }
     }
   },
   routes: [

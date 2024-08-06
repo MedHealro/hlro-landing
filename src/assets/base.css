@@ -6,9 +6,14 @@
     navy - 24528E
     gold - B8922F
   */
-  --clr-primary-100: hsl(215, 100%, 95%);
-  --clr-primary-300: hsl(215, 100%, 73%);
-  --clr-primary-400: hsl(215, 100%, 47%);
+  /* --clr-primary-100: hsl(215, 100%, 95%);
+  --clr-primary-300: hsl(215, 100%, 73%); */
+  /* --clr-primary-400: hsl(215, 100%, 47%); */
+
+  --clr-primary-100: hsl(213.96, 100%, 95%);
+  --clr-primary-300: hsl(213.96, 100%, 73%);
+  --clr-primary-400: hsl(213.96, 60%, 35%);
+  /* --clr-primary-400: green; */
 
   --clr-light: hsl(0, 0%, 100%);
   --clr-light-200: hsl(0, 0%, 90%);
@@ -76,7 +81,13 @@
 }
 
 .bg-primary-400 {
-  color: var(--clr-primary-400);
+  background-color: var(--clr-primary-400);
+  color: var(--clr-light);
+}
+
+.bg-accent-400 {
+  background-color: var(--clr-accent-400);
+  color: var(--clr-light);
 }
 
 .fw-bold {
@@ -107,13 +118,17 @@
 .fs-lg {
   font-size: var(--fs-500);
 }
+.fs-xl {
+  font-size: var(--fs-700);
+}
 
 .container,
 .section {
   --max-width: 1200px;
-  width: min(var(--max-width), 100% - (var(--spacing-300) * 2));
+  /* width: min(var(--max-width), 100% - (var(--spacing-300) * 2)); */
   margin-inline: auto;
-  padding: var(--spacing-300) var(--spacing-300);
+  /* padding: var(--spacing-300) var(--spacing-300); */
+  padding: var(--spacing-300) var(--spacing-600);
 }
 
 @media (max-width: 50em) {
