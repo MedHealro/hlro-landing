@@ -158,6 +158,7 @@ const submitForm = async (formData) => {
               label="公司名稱"
               help="請輸入您的公司名稱"
               placeholder=""
+              validation-visibility="blur"
             />
 
             <FormKit
@@ -168,6 +169,7 @@ const submitForm = async (formData) => {
               label="姓名"
               help="請輸入您的姓名"
               placeholder=""
+              validation-visibility="blur"
             />
 
             <FormKit
@@ -176,6 +178,7 @@ const submitForm = async (formData) => {
               label="Email"
               help="請輸入您的聯絡Email"
               validation="required|email"
+              validation-visibility="blur"
             />
 
             <FormKit
@@ -188,6 +191,7 @@ const submitForm = async (formData) => {
               :validation-messages="{
                 length: '輸入上限為120字'
               }"
+              validation-visibility="blur"
             />
 
             <button class="button" type="submit">送出</button>
