@@ -1,11 +1,15 @@
 <script setup lang="ts">
-const axios = {
-  post: () => new Promise((r) => setTimeout(r, 2000))
-}
+import formApi from '@/api/postGoogleForm'
+
+// const axios = {
+//   post: () => new Promise((r) => setTimeout(r, 2000))
+// }
 
 const submitForm = async (formData) => {
+  console.log('xxxioo')
   console.log(formData)
-  const res = await axios.post(formData)
+  const res = await formApi.postForm(formData)
+  console.log(res, 'yyy')
   // submit form
   alert('Form submitted!')
 }

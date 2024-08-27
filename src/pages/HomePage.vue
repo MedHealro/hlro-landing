@@ -3,6 +3,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { ref } from 'vue'
 import ContactUs from '@/components/ContactUs.vue'
 
+
 const router = useRouter()
 
 const members = [
@@ -37,17 +38,6 @@ const members = [
     portrait: ''
   }
 ]
-
-const axios = {
-  post: () => new Promise((r) => setTimeout(r, 2000))
-}
-
-const submitForm = async (formData) => {
-  console.log(formData)
-  const res = await axios.post(formData)
-  // submit form
-  alert('Form submitted!')
-}
 </script>
 
 <template>
