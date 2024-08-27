@@ -7,25 +7,28 @@ const baseUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQ_ZKnTTZoshusuAO
 
 const actions = {
   async postForm (formResponse) {
-    const googleFormResponse = {
-      // name
-      'entry.25653564': formResponse.name ? formResponse.name : 'null',
-      'entry.1517608123': formResponse.email ? formResponse.email : 'null'
-    }
+    // const googleFormResponse = {
+    //   // name
+    //   'entry.25653564': formResponse.name ? formResponse.name : 'null',
+    //   'entry.1517608123': formResponse.email ? formResponse.email : 'null'
+    // }
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type'
-      }
-    }
+    // const config = {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Access-Control-Allow-Methods': 'POST',
+    //     'Access-Control-Allow-Headers': 'Origin, Content-Type'
+    //   }
+    // }
+
+    const nameKey = 'entry.25653564'
+    const emailKey = 'entry.1517608123'
 
     try {      
       console.log('posting to google forms')
       // const { data } = await axios.post(`${baseUrl}`, googleFormResponse)
-      const res = await axios.post(`${baseUrl}`, googleFormResponse, config)
+      const res = await axios.get(`${baseUrl}?${nameKey}=${formResponse.name}&${emailKey}=${formResponse.email}`)
       console.log('post response:')
       console.log(res)
     } catch (error) {
