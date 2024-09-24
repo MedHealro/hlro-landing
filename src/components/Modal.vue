@@ -25,7 +25,7 @@ export default {
     closeModal() {
       this.$emit('update:visible', false)
     },
-    handleKeydown(event) {
+    handleKeydown(event : KeyboardEvent) {
       if (event.key === 'Escape') {
         this.closeModal()
       }

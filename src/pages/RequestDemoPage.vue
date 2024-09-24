@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const axios = {
-  post: () => new Promise((r) => setTimeout(r, 2000))
-}
+// const axios = {
+//   post: () => new Promise((r) => setTimeout(r, 2000))
+// }
 
-const submitForm = async (formData) => {
-  console.log(formData)
-  const res = await axios.post(formData)
-  // submit form
-  alert('Form submitted!')
-}
+// const submitForm = async (formData) => {
+//   console.log(formData)
+//   const res = await axios.post(formData)
+//   // submit form
+//   alert('Form submitted!')
+// }
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const submitForm = async (formData) => {
             感謝您對我們產品的關注！若您想進一步預約產品說明，請您填寫預約表單。我們的專業團隊將儘快與您聯繫，安排產品說明服務。
           </p>
         </div>
-        <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">
+        <!-- <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">
           <FormKit
             type="text"
             name="company-name"
@@ -59,7 +59,7 @@ const submitForm = async (formData) => {
           />
 
           <button class="button" type="submit">送出</button>
-        </FormKit>
+        </FormKit> -->
       </div>
     </section>
   </main>
