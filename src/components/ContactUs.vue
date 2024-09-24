@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import formApi from '@/api/postGoogleForm'
+import * as Model from '@/models/interfaces'
 
-// const axios = {
-//   post: () => new Promise((r) => setTimeout(r, 2000))
-// }
-
-const submitForm = async (formData) => {
-  console.log('xxxioo')
-  console.log(formData)
-  const res = await formApi.postForm(formData)
-  console.log(res, 'yyy')
-  // submit form
-  alert('Form submitted!')
+/**
+ * 送出 Google 表單
+ * @param formData 表單資訊
+ */
+const submitForm = async (formData: Model.IFormResponse) => {
+  try {
+    await formApi.postForm(formData)
+    console.log('表單已提交')
+    alert('表單已送出!Form submitted!')
+  } catch (e) {
+    console.log('表單提交失敗 : ', e)
+    alert('表單提交失敗，請稍後再試!')
+  }
 }
 </script>
 
@@ -50,8 +53,8 @@ const submitForm = async (formData) => {
     <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">
       <FormKit
         type="text"
-        name="company-name"
-        id="company-name"
+        name="company"
+        id="company"
         validation="required"
         label="公司名稱"
         help="請輸入您的公司名稱"
@@ -83,7 +86,7 @@ const submitForm = async (formData) => {
         name="comment"
         label="備註"
         placeholder=""
-        :help="`${value.comment ? value.comment.length : 0} / 120`"
+        :help="`${value?.comment ? (value.comment as string).length : 0} / 120`"
         validation="length:0,120"
         :validation-messages="{
           length: '輸入上限為120字'

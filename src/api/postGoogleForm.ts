@@ -1,50 +1,41 @@
-import axios, { Axios, type AxiosPromise, type AxiosResponse } from 'axios'
+import * as Model from '@/models/interfaces'
 
-const baseUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQ_ZKnTTZoshusuAOvQTCWVrvCnl5Yf9eLCAYw9GS5vNVjGA/formResponse'
+const baseUrl =
+  'https://docs.google.com/forms/d/e/1FAIpQLSe1qwgtedMwkBJts5Oe8gorwXwCTX7Hgsfo1gq9UyjGZ_auqA/formResponse'
 
-// name -> entry.25653564
-// email -> entry.1517608123
+// Healro Form 表單對應欄位編號
+// company   -> entry.364542438
+// name      -> entry.538109801
+// email     -> entry.604430983
+// phone     -> entry.433654877
+// message   -> entry.1980925470
+// agreement -> entry.1832691606
 
+/**
+ * 使用 Google API 建立表單
+ */
 const actions = {
-  async postForm (formResponse) {
-    // const googleFormResponse = {
-    //   // name
-    //   'entry.25653564': formResponse.name ? formResponse.name : 'null',
-    //   'entry.1517608123': formResponse.email ? formResponse.email : 'null'
-    // }
+  async postForm(formResponse: Model.IFormResponse) {
+    const formData = new URLSearchParams()
+    // company
+    formData.append('entry.364542438', formResponse.company)
+    // name
+    formData.append('entry.538109801', formResponse.name)
+    // email
+    formData.append('entry.604430983', formResponse.email)
+    // phone
+    formData.append('entry.433654877', formResponse.phone)
+    // message
+    formData.append('entry.1980925470', formResponse.comment)
+    // agreement
+    formData.append('entry.1832691606', formResponse.terms)
 
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Access-Control-Allow-Methods': 'POST',
-    //     'Access-Control-Allow-Headers': 'Origin, Content-Type'
-    //   }
-    // }
-
-    const nameKey = 'entry.25653564'
-    const emailKey = 'entry.1517608123'
-
-    try {      
-      console.log('posting to google forms')
-      // const { data } = await axios.post(`${baseUrl}`, googleFormResponse)
-      const res = await axios.get(`${baseUrl}?${nameKey}=${formResponse.name}&${emailKey}=${formResponse.email}`)
-      console.log('post response:')
-      console.log(res)
-    } catch (error) {
-      if (axios.isAxiosError(error)) {    
-        // handle axios error
-        console.log(error)
-      } else {    
-        // handle self defined or unexpected error
-        console.log(error)
-      }
-    }
+    const response = fetch(baseUrl, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    })
   }
-}
-
-const methods = {
-
 }
 
 export default actions
