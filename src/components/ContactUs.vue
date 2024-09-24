@@ -50,7 +50,7 @@ const submitForm = async (formData: Model.IFormResponse) => {
         </ul>
       </div>
     </div>
-    <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">
+    <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm" :errors="['請確認表單是否填寫完成，謝謝!']">
       <FormKit
         type="text"
         name="company"
@@ -59,6 +59,7 @@ const submitForm = async (formData: Model.IFormResponse) => {
         label="公司名稱"
         help="請輸入您的公司名稱"
         placeholder=""
+        :validation-messages="{ required: '請輸入您的公司名稱。' }"
       />
 
       <FormKit
@@ -69,6 +70,7 @@ const submitForm = async (formData: Model.IFormResponse) => {
         label="姓名"
         help="請輸入您的姓名"
         placeholder=""
+        :validation-messages="{ required: '請輸入您的姓名。' }"
       />
 
       <FormKit
@@ -77,9 +79,17 @@ const submitForm = async (formData: Model.IFormResponse) => {
         label="Email"
         help="請輸入您的聯絡Email"
         validation="required|email"
+        :validation-messages="{ email: '請輸入有效的電子信箱。', required: '請輸入您的電子信箱。' }"
       />
 
-      <FormKit name="phone" type="tel" label="電話" help="請輸入您的聯絡電話" validation="" />
+      <FormKit
+        name="phone"
+        type="tel"
+        label="電話"
+        help="請輸入您的聯絡電話"
+        :validation="[['matches', /09[0-9]{8}$/, /04\-[0-9]{8}$/]]"
+        :validation-messages="{ matches: '請輸入有效的聯絡電話，例如 0912345678 或 04-12345678。' }"
+      />
 
       <FormKit
         type="textarea"
@@ -88,9 +98,7 @@ const submitForm = async (formData: Model.IFormResponse) => {
         placeholder=""
         :help="`${value?.comment ? (value.comment as string).length : 0} / 120`"
         validation="length:0,120"
-        :validation-messages="{
-          length: '輸入上限為120字'
-        }"
+        :validation-messages="{ length: '輸入上限為120字。' }"
       />
 
       <FormKit
@@ -100,6 +108,7 @@ const submitForm = async (formData: Model.IFormResponse) => {
         name="terms"
         validation="accepted"
         validation-visibility="dirty"
+        :validation-messages="{ accepted: '請同意個人資料的蒐集。' }"
       />
 
       <button class="button" type="submit">送出</button>
