@@ -24,18 +24,23 @@ const actions = {
     // email
     formData.append('entry.604430983', formResponse.email)
     // phone
-    formData.append('entry.433654877', formResponse.phone)
+    formData.append('entry.433654877', emptyValueCheck(formResponse.phone))
     // message
-    formData.append('entry.1980925470', formResponse.comment)
+    formData.append('entry.1980925470', emptyValueCheck(formResponse.comment))
     // agreement
     formData.append('entry.1832691606', formResponse.terms)
 
-    const response = fetch(baseUrl, {
+    return fetch(baseUrl, {
       method: 'POST',
       body: formData,
       mode: 'no-cors'
     })
   }
+}
+
+const emptyValueCheck = (value: string): string => {
+  const val = value?.trim()
+  return val ? val : 'None'
 }
 
 export default actions
