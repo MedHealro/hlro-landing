@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import ContactUs from '@/components/ContactUs.vue'
+import * as Model from '@/models/interfaces'
 
-
+const contactUsRef = ref<Model.IContactRef>()
 const router = useRouter()
+
+/**
+ * 點擊【預約產品說明】按鈕
+ */
+const setCommentMsg = () => {
+  contactUsRef?.value?.setMsg()
+  router.push('#contact-us')
+}
 
 const members = [
   {
@@ -50,9 +59,7 @@ const members = [
             透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
             應用生態接軌，達成資料實務及臨床應用。
           </p>
-          <button class="button hero-button" @click="router.push('#contact-us')">
-            預約產品說明
-          </button>
+          <button class="button hero-button" @click="setCommentMsg">預約產品說明</button>
         </div>
         <div>
           <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
@@ -125,18 +132,18 @@ const members = [
     <section id="team" class="section">
       <h2 class="fs-secondary-heading">團隊介紹</h2>
       <div class="members-content">
-        <div v-for="member in members" class="member">
+        <div v-for="(member, index) in members" class="member" :key="index">
           <img class="member-portrait" src="@/assets/imgs/mirror.svg" alt="" />
           <h3 class="member-title">{{ member.title }}</h3>
           <ul>
-            <li v-for="exp in member.experience">{{ exp }}</li>
+            <li v-for="(exp, expIndex) in member.experience" :key="expIndex">{{ exp }}</li>
           </ul>
         </div>
       </div>
     </section>
     <section id="contact-us" class="section">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
-      <ContactUs />
+      <ContactUs ref="contactUsRef" />
       <!-- <div class="split">
         <div class="contact-item">
           <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">

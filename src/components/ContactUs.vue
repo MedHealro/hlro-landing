@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import formApi from '@/api/postGoogleForm'
 import * as Model from '@/models/interfaces'
+import { ref } from 'vue'
+import { reset } from '@formkit/core'
+
+const commentMsg = ref<string>('')
+
+/**
+ * 寫入Comment訊息
+ */
+const setMsg = () => {
+  commentMsg.value = '預約產品說明'
+}
 
 /**
  * 送出 Google 表單
@@ -11,11 +22,16 @@ const submitForm = async (formData: Model.IFormResponse) => {
     await formApi.postForm(formData)
     console.log('表單已提交')
     alert('表單已送出!Form submitted!')
+    reset('contactForm')
   } catch (e) {
     console.log('表單提交失敗 : ', e)
     alert('表單提交失敗，請稍後再試!')
   }
 }
+
+defineExpose({
+  setMsg
+})
 </script>
 
 <template>
@@ -50,7 +66,14 @@ const submitForm = async (formData: Model.IFormResponse) => {
         </ul>
       </div>
     </div>
-    <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm" :errors="['請確認表單是否填寫完成，謝謝!']">
+    <FormKit
+      type="form"
+      id="contactForm"
+      :actions="false"
+      #default="{ value }"
+      @submit="submitForm"
+      :errors="['請確認表單是否填寫完成，謝謝!']"
+    >
       <FormKit
         type="text"
         name="company"
@@ -96,6 +119,7 @@ const submitForm = async (formData: Model.IFormResponse) => {
         name="comment"
         label="備註"
         placeholder=""
+        v-model="commentMsg"
         :help="`${value?.comment ? (value.comment as string).length : 0} / 120`"
         validation="length:0,120"
         :validation-messages="{ length: '輸入上限為120字。' }"

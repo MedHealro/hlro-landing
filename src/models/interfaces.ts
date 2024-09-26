@@ -6,3 +6,7 @@ export interface IFormResponse {
   comment: string
   terms: string
 }
+
+export interface IContactRef {
+  setMsg: () => void
+}
