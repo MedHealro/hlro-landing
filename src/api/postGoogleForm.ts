@@ -15,20 +15,20 @@ const baseUrl =
  * 使用 Google API 建立表單
  */
 const actions = {
-  async postForm(formResponse: Model.IFormResponse) {
+  async postForm(formResponse: Model.IFormData) {
     const formData = new URLSearchParams()
     // company
-    formData.append('entry.364542438', formResponse.company)
+    formData.append('entry.364542438', String(formResponse.company))
     // name
-    formData.append('entry.538109801', formResponse.name)
+    formData.append('entry.538109801', String(formResponse.name))
     // email
-    formData.append('entry.604430983', formResponse.email)
+    formData.append('entry.604430983', String(formResponse.email))
     // phone
-    formData.append('entry.433654877', emptyValueCheck(formResponse.phone))
+    formData.append('entry.433654877', String(formResponse.phone))
     // message
-    formData.append('entry.1980925470', emptyValueCheck(formResponse.comment))
+    formData.append('entry.1980925470', String(formResponse.comment))
     // agreement
-    formData.append('entry.1832691606', formResponse.terms)
+    formData.append('entry.1832691606', String(formResponse.terms))
 
     return fetch(baseUrl, {
       method: 'POST',
@@ -36,11 +36,6 @@ const actions = {
       mode: 'no-cors'
     })
   }
-}
-
-const emptyValueCheck = (value: string): string => {
-  const val = value?.trim()
-  return val ? val : 'None'
 }
 
 export default actions

@@ -1,37 +1,19 @@
 <script setup lang="ts">
-import formApi from '@/api/postGoogleForm'
 import * as Model from '@/models/interfaces'
-import { ref } from 'vue'
 import { reset } from '@formkit/core'
+import { useFormStore } from '@/stores/formStore'
 
-const commentMsg = ref<string>('')
-
-/**
- * 寫入Comment訊息
- */
-const setMsg = () => {
-  commentMsg.value = '預約產品說明'
-}
+// 使用 Pinia store
+const formStore = useFormStore()
 
 /**
  * 送出 Google 表單
  * @param formData 表單資訊
  */
-const submitForm = async (formData: Model.IFormResponse) => {
-  try {
-    await formApi.postForm(formData)
-    console.log('表單已提交')
-    alert('表單已送出!Form submitted!')
-    reset('contactForm')
-  } catch (e) {
-    console.log('表單提交失敗 : ', e)
-    alert('表單提交失敗，請稍後再試!')
-  }
+const submitForm = async () => {
+  formStore.handleSubmit()
+  reset('contactForm')
 }
-
-defineExpose({
-  setMsg
-})
 </script>
 
 <template>
@@ -79,6 +61,7 @@ defineExpose({
         name="company"
         id="company"
         validation="required"
+        v-model="formStore.company"
         label="公司名稱"
         help="請輸入您的公司名稱"
         placeholder=""
@@ -90,6 +73,7 @@ defineExpose({
         name="name"
         id="name"
         validation="required|not:Admin"
+        v-model="formStore.name"
         label="姓名"
         help="請輸入您的姓名"
         placeholder=""
@@ -102,6 +86,7 @@ defineExpose({
         label="Email"
         help="請輸入您的聯絡Email"
         validation="required|email"
+        v-model="formStore.email"
         :validation-messages="{ email: '請輸入有效的電子信箱。', required: '請輸入您的電子信箱。' }"
       />
 
@@ -110,7 +95,8 @@ defineExpose({
         type="tel"
         label="電話"
         help="請輸入您的聯絡電話"
-        :validation="[['matches', /09[0-9]{8}$/, /04\-[0-9]{8}$/]]"
+        v-model="formStore.phone"
+        :validation="[['matches', /09[0-9]{8}$/, /0[2-8][2-9]{0,1}(6){0,1}\-[0-9]{8}$/]]"
         :validation-messages="{ matches: '請輸入有效的聯絡電話，例如 0912345678 或 04-12345678。' }"
       />
 
@@ -119,7 +105,7 @@ defineExpose({
         name="comment"
         label="備註"
         placeholder=""
-        v-model="commentMsg"
+        v-model="formStore.comment"
         :help="`${value?.comment ? (value.comment as string).length : 0} / 120`"
         validation="length:0,120"
         :validation-messages="{ length: '輸入上限為120字。' }"
@@ -131,6 +117,7 @@ defineExpose({
         help="我同意收到資慧科技相關行銷宣傳訊息"
         name="terms"
         validation="accepted"
+        v-model="formStore.terms"
         validation-visibility="dirty"
         :validation-messages="{ accepted: '請同意個人資料的蒐集。' }"
       />

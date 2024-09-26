@@ -3,15 +3,17 @@ import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import ContactUs from '@/components/ContactUs.vue'
 import * as Model from '@/models/interfaces'
+import { useFormStore } from '@/stores/formStore'
 
 const contactUsRef = ref<Model.IContactRef>()
 const router = useRouter()
+const formStore = useFormStore()
 
 /**
  * 點擊【預約產品說明】按鈕
  */
 const setCommentMsg = () => {
-  contactUsRef?.value?.setMsg()
+  formStore.updateComment('預約產品說明')
   router.push('#contact-us')
 }
 
