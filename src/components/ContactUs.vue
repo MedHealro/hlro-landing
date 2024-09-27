@@ -97,7 +97,7 @@ const submitForm = async () => {
         help="請輸入您的聯絡電話"
         v-model="formStore.phone"
         :validation="[['matches', /09[0-9]{8}$/, /0[2-8][2-9]{0,1}(6){0,1}\-[0-9]{8}$/]]"
-        :validation-messages="{ matches: '請輸入有效的聯絡電話，例如 0912345678 或 04-12345678。' }"
+        :validation-messages="{ matches: '請輸入有效的聯絡電話。' }"
       />
 
       <FormKit
