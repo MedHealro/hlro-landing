@@ -63,7 +63,6 @@ const submitForm = async () => {
         validation="required"
         v-model="formStore.company"
         label="公司名稱"
-        help="請輸入您的公司名稱"
         placeholder=""
         :validation-messages="{ required: '請輸入您的公司名稱。' }"
       />
@@ -75,7 +74,6 @@ const submitForm = async () => {
         validation="required|not:Admin"
         v-model="formStore.name"
         label="姓名"
-        help="請輸入您的姓名"
         placeholder=""
         :validation-messages="{ required: '請輸入您的姓名。' }"
       />
@@ -84,7 +82,6 @@ const submitForm = async () => {
         name="email"
         type="email"
         label="Email"
-        help="請輸入您的聯絡Email"
         validation="required|email"
         v-model="formStore.email"
         :validation-messages="{ email: '請輸入有效的電子信箱。', required: '請輸入您的電子信箱。' }"
@@ -93,8 +90,7 @@ const submitForm = async () => {
       <FormKit
         name="phone"
         type="tel"
-        label="電話"
-        help="請輸入您的聯絡電話"
+        label="電話"        
         v-model="formStore.phone"
         :validation="[['matches', /09[0-9]{8}$/, /0[2-8][2-9]{0,1}(6){0,1}\-[0-9]{8}$/]]"
         :validation-messages="{ matches: '請輸入有效的聯絡電話。' }"
