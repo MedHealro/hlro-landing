@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
 import ContactUs from '@/components/ContactUs.vue'
-import * as Model from '@/models/interfaces'
 import { useFormStore } from '@/stores/formStore'
 
-const contactUsRef = ref<Model.IContactRef>()
 const router = useRouter()
 const formStore = useFormStore()
 
@@ -145,81 +142,7 @@ const members = [
     </section>
     <section id="contact-us" class="section">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
-      <ContactUs ref="contactUsRef" />
-      <!-- <div class="split">
-        <div class="contact-item">
-          <FormKit type="form" :actions="false" #default="{ value }" @submit="submitForm">
-            <FormKit
-              type="text"
-              name="company-name"
-              id="company-name"
-              validation="required"
-              label="公司名稱"
-              help="請輸入您的公司名稱"
-              placeholder=""
-              validation-visibility="blur"
-            />
-
-            <FormKit
-              type="text"
-              name="name"
-              id="name"
-              validation="required|not:Admin"
-              label="姓名"
-              help="請輸入您的姓名"
-              placeholder=""
-              validation-visibility="blur"
-            />
-
-            <FormKit
-              name="email"
-              type="email"
-              label="Email"
-              help="請輸入您的聯絡Email"
-              validation="required|email"
-              validation-visibility="blur"
-            />
-
-            <FormKit
-              type="textarea"
-              name="message"
-              label="需求描述"
-              placeholder=""
-              :help="`${value.message ? value.message.length : 0} / 120`"
-              validation="length:0,120"
-              :validation-messages="{
-                length: '輸入上限為120字'
-              }"
-              validation-visibility="blur"
-            />
-
-            <button class="button" type="submit">送出</button>
-          </FormKit>
-        </div>
-        <div class="contact-item">
-          <img class="location" src="@/assets/imgs/usa-il.svg" alt="" />
-        </div>
-        <div class="contact-item">
-          <ul>
-            <li class="contact-info-item">
-              <img class="contact-icon" src="@/assets/imgs/mail.svg" alt="" />
-              <span>台北市信義區信義路5段7號</span>
-            </li>
-            <li class="contact-info-item">
-              <img class="contact-icon" src="@/assets/imgs/mail.svg" alt="" />
-              <span>台北市信義區信義路5段7號</span>
-            </li>
-            <li class="contact-info-item">
-              <img class="contact-icon" src="@/assets/imgs/mail.svg" alt="" />
-              <span>台北市信義區信義路5段7號</span>
-            </li>
-            <li class="contact-info-item">
-              <img class="contact-icon" src="@/assets/imgs/mail.svg" alt="" />
-              <span>台北市信義區信義路5段7號</span>
-            </li>
-          </ul>
-        </div>
-      </div> -->
+      <ContactUs />
     </section>
   </main>
 </template>
