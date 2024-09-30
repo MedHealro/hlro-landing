@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+</script>
 
 <template>
   <div class="container footer">
@@ -9,8 +13,8 @@
       <div></div>
       <div class="company-terms">
         <div>© 2023-2024 資慧科技股份有限公司</div>
-        <div>服務條款</div>
-        <div>隱私權政策</div>
+        <button class="footer-button" @click="router.push('terms')">服務條款</button>
+        <button class="footer-button" @click="router.push('privacy')">隱私權政策</button>
       </div>
     </nav>
   </div>
@@ -39,4 +43,14 @@
   flex-direction: column;
   align-items: end;
 }
+
+.footer-button {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
 </style>
+
+
