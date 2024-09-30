@@ -75,7 +75,7 @@
           <a
             target="_blank"
             href="https://support.microsoft.com/zh-tw/help/17442/windows-internet-explorer-delete-manage-cookies"
-            >Internet Explorer® 的 Cookie 設定</a
+            >Microsoft Edge® 的 Cookie 設定</a
           >
         </li>
         <li>
@@ -121,5 +121,10 @@
   color: inherit;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.privacy ul {
+  list-style-type: circle;
+  list-style-position: inside;
 }
 </style>
