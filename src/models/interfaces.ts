@@ -7,6 +7,3 @@ export interface IFormData {
   terms: boolean
 }
 
-export interface IContactRef {
-  setMsg: () => void
-}

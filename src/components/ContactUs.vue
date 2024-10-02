@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import * as Model from '@/models/interfaces'
 import { reset } from '@formkit/core'
 import { useFormStore } from '@/stores/formStore'
 
