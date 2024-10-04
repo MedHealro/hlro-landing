@@ -16,33 +16,57 @@ const setCommentMsg = () => {
 
 const members = [
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '陳俊佑 顧問',
+    img: '/src/assets/imgs/Jim.png',
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '江和原 COO',
+    img: '/src/assets/imgs/coo.png',
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '王德士 VP',
+    img: '/src/assets/imgs/vp.png',
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '陳禹儒 CTO',
+    img: '/src/assets/imgs/Aru.png',
+    experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '黃大煒 CIO',
+    img: '/src/assets/imgs/Dave.png',
+    experience: ['後端軟體工程師'],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '林映如 總經理',
+    img: '/src/assets/imgs/Eve.png',
+    experience: ['前端軟體工程師'],
+    portrait: ''
+  },
+  {
+    title: '陳正傑 顧問',
+    img: '/src/assets/imgs/David.png',
+    experience: ['全端軟體工程師'],
+    portrait: ''
+  },
+  {
+    title: '陳毓婷 顧問',
+    img: '/src/assets/imgs/Yuting.png',
+    experience: ['前端軟體工程師'],
+    portrait: ''
+  },
+  {
+    title: '劉珊珊',
+    img: '/src/assets/imgs/Savana.png',
+    experience: ['專案經理'],
     portrait: ''
   }
 ]
@@ -50,6 +74,7 @@ const members = [
 
 <template>
   <main>
+    <!-- AI 轉換引擎 -->
     <section class="section">
       <div class="split hero">
         <div>
@@ -65,6 +90,7 @@ const members = [
         </div>
       </div>
     </section>
+    <!-- 解決方案 -->
     <section id="solutions" class="solutions-section engine">
       <h2 class="fs-secondary-heading solutions-title">解決方案</h2>
       <div class="split solution-split">
@@ -80,6 +106,7 @@ const members = [
         </div>
       </div>
     </section>
+    <!-- FHIR 資料實務 -->
     <section class="solutions-section applied">
       <div class="split solution-split">
         <div class="solution-image applied-img hide-desktop">
@@ -120,6 +147,7 @@ const members = [
         </div>
       </div>
     </section> -->
+    <!-- 關於我們 -->
     <section id="about" class="section members">
       <h2 class="fs-secondary-heading">關於我們</h2>
       <p>
@@ -128,11 +156,12 @@ const members = [
         FHIR轉換引擎」，自動且準確地將各種格式的醫療資料轉換為FHIR格式，提升資料利用率，促進資料共享，並提升醫療產業的服務質量和效率。我們旨在提供快速、準確、無縫的資料轉換解決方案，推動醫療行業進步。
       </p>
     </section>
-    <section id="team" class="section">
+    <!-- 團隊介紹 -->
+    <section id="team" class="section section-container">
       <h2 class="fs-secondary-heading">團隊介紹</h2>
       <div class="members-content">
         <div v-for="(member, index) in members" class="member" :key="index">
-          <img class="member-portrait" src="@/assets/imgs/mirror.svg" alt="" />
+          <img class="member-portrait" :src="member.img" :alt="member.title" />
           <h3 class="member-title">{{ member.title }}</h3>
           <ul>
             <li v-for="(exp, expIndex) in member.experience" :key="expIndex">{{ exp }}</li>
@@ -140,6 +169,7 @@ const members = [
         </div>
       </div>
     </section>
+    <!-- 聯絡我們 -->
     <section id="contact-us" class="section">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
       <ContactUs />
@@ -202,6 +232,10 @@ const members = [
   scroll-margin-top: -144px;
 }
 
+.section-container {
+  max-width: 1200px;
+}
+
 .split.hero {
   grid-auto-columns: 1fr 2fr;
   gap: 5%;
@@ -252,22 +286,28 @@ const members = [
 .members-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   justify-content: space-around;
+  max-width: 1200px;
 }
 
 .member {
+  flex: 1 1 calc(100% / 3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .member-portrait {
-  width: 12em;
+  width: 160px;
+  object-fit: cover;
+  height: 250px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .member-title {
+  margin-top: 0.5rem;
   font-size: var(--fs-500);
 }
 
@@ -289,7 +329,8 @@ const members = [
   width: 1.5em;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 768px) {
+  /* 平板樣式 */
   .solutions-content {
     flex-direction: column;
   }
@@ -323,6 +364,17 @@ const members = [
     padding-top: 0;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .member {
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 手機樣式 */
+  .member {
+    flex: 1 1 100%;
   }
 }
 </style>
