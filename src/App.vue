@@ -79,7 +79,7 @@ const toggleMobileNav = () => {
 <style scoped>
 .logo {
   width: 7rem;
-  height: 7rem;
+  height: 80px;
 }
 
 .primary-header {
@@ -93,6 +93,8 @@ const toggleMobileNav = () => {
   color: var(--clr-primary-400);
   display: flex;
   align-items: center;
+  max-width: 1200px;
+  padding: 0;
 }
 
 .nav-wrapper a:visited {
@@ -117,8 +119,14 @@ const toggleMobileNav = () => {
 .mobile-nav-toggle {
   display: none;
 }
+@media (max-width: 1250px) {
+  .nav-wrapper {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
 
-@media (max-width: 50em) {
+@media (max-width: 768px) {
   .primary-header {
     margin-top: var(--spacing-400);
   }
@@ -153,6 +161,8 @@ const toggleMobileNav = () => {
 
   .nav-wrapper {
     justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .mobile-nav-toggle {

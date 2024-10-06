@@ -73,9 +73,9 @@ const members = [
 </script>
 
 <template>
-  <main>
+  <main class="main-container">
     <!-- AI 轉換引擎 -->
-    <section class="section">
+    <section class="section section-container">
       <div class="split hero">
         <div>
           <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
@@ -90,9 +90,10 @@ const members = [
         </div>
       </div>
     </section>
+    <div class="hr-line"></div>
     <!-- 解決方案 -->
-    <section id="solutions" class="solutions-section engine">
-      <h2 class="fs-secondary-heading solutions-title">解決方案</h2>
+    <section id="solutions" class="solutions-section  section-container">
+      <h2 class="fs-secondary-heading ">解決方案</h2>
       <div class="split solution-split">
         <div class="solution-content">
           <h2 class="solution-item-title">轉換引擎</h2>
@@ -107,9 +108,9 @@ const members = [
       </div>
     </section>
     <!-- FHIR 資料實務 -->
-    <section class="solutions-section applied">
+    <section class="solutions-section applied section-container">
       <div class="split solution-split">
-        <div class="solution-image applied-img hide-desktop">
+        <div class="solution-image engine-img hide-desktop">
           <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
         </div>
         <div class="solution-content">
@@ -118,7 +119,7 @@ const members = [
             導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
           </div>
         </div>
-        <div class="solution-image applied-img hide-mobile">
+        <div class="solution-image engine-img hide-mobile">
           <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
         </div>
       </div>
@@ -148,7 +149,7 @@ const members = [
       </div>
     </section> -->
     <!-- 關於我們 -->
-    <section id="about" class="section members">
+    <section id="about" class="section members section-container">
       <h2 class="fs-secondary-heading">關於我們</h2>
       <p>
         我們是發源於醫學中心的醫療資訊團隊，致力於建構便捷醫療資訊系統與醫療資料的應用。隨著電子健康記錄（EHR）系統的普及，大量醫療資料被創建，但由於格式不統一和系統不兼容，這些資料的價值受限，造成資訊孤島，影響資料的有效利用和跨機構共享。
@@ -170,7 +171,7 @@ const members = [
       </div>
     </section>
     <!-- 聯絡我們 -->
-    <section id="contact-us" class="section">
+    <section id="contact-us" class="section section-container">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
       <ContactUs />
     </section>
@@ -178,6 +179,12 @@ const members = [
 </template>
 
 <style scoped>
+.main-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .hide-mobile {
   display: none;
 }
@@ -234,6 +241,10 @@ const members = [
 
 .section-container {
   max-width: 1200px;
+  padding: 0;
+  margin: auto;
+  width: auto;
+  margin-top: 75px;
 }
 
 .split.hero {
@@ -255,7 +266,7 @@ const members = [
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--spacing-600);
+  /* padding: var(--spacing-600); */
 }
 
 .solution-image {
@@ -329,8 +340,22 @@ const members = [
   width: 1.5em;
 }
 
+.hr-line {
+  border-top: 10px solid var(--clr-primary-400);
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+/* 小於桌面螢幕尺寸 */
+@media (max-width: 1250px) {
+  .section-container {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+/* 平板樣式 */
 @media (max-width: 768px) {
-  /* 平板樣式 */
   .solutions-content {
     flex-direction: column;
   }
@@ -340,7 +365,7 @@ const members = [
   }
 
   .split.hero {
-    gap: 10%;
+    gap: 7%;
   }
 
   .hide-desktop {
@@ -366,15 +391,30 @@ const members = [
     padding-right: 0.5rem;
   }
 
+  .section-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 48px;
+  }
+
   .member {
     flex: 1 1 50%;
   }
+
+  .hr-line {
+    margin-bottom: 48px;
+  }
 }
 
+/* 手機樣式 */
 @media (max-width: 480px) {
-  /* 手機樣式 */
   .member {
     flex: 1 1 100%;
+  }
+
+  .section-container {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 </style>
