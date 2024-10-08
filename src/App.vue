@@ -4,7 +4,6 @@ import { ref } from 'vue'
 
 import Modal from '@/components/Modal.vue'
 import MainFooter from '@/components/MainFooter.vue'
-import ContactUs from '@/components/ContactUs.vue'
 
 const showMobileNav = ref(false)
 
@@ -95,6 +94,8 @@ const toggleMobileNav = () => {
   align-items: center;
   max-width: 1200px;
   padding: 0;
+  justify-content: space-between;
+  width: auto;
 }
 
 .nav-wrapper a:visited {
@@ -104,6 +105,7 @@ const toggleMobileNav = () => {
 .primary-nav {
   padding: var(--spacing-300);
   margin-top: 0.5rem;
+  padding-right: 0;
 }
 
 .nav-list {

@@ -17,55 +17,55 @@ const setCommentMsg = () => {
 const members = [
   {
     title: '陳俊佑 顧問',
-    img: '/src/assets/imgs/Jim.png',
+    img: '/src/assets/imgs/jim.png',
     experience: [''],
     portrait: ''
   },
   {
     title: '江和原 COO',
-    img: '/src/assets/imgs/coo.png',
+    img: '/src/assets/imgs/jiang.png',
     experience: [''],
     portrait: ''
   },
   {
     title: '王德士 VP',
-    img: '/src/assets/imgs/vp.png',
+    img: '/src/assets/imgs/wang.png',
     experience: [''],
     portrait: ''
   },
   {
     title: '陳禹儒 CTO',
-    img: '/src/assets/imgs/Aru.png',
+    img: '/src/assets/imgs/aru.png',
     experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
     title: '黃大煒 CIO',
-    img: '/src/assets/imgs/Dave.png',
+    img: '/src/assets/imgs/dave.png',
     experience: ['後端軟體工程師'],
     portrait: ''
   },
   {
     title: '林映如 總經理',
-    img: '/src/assets/imgs/Eve.png',
+    img: '/src/assets/imgs/eve.png',
     experience: ['前端軟體工程師'],
     portrait: ''
   },
   {
     title: '陳正傑 顧問',
-    img: '/src/assets/imgs/David.png',
+    img: '/src/assets/imgs/david.png',
     experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
     title: '陳毓婷 顧問',
-    img: '/src/assets/imgs/Yuting.png',
+    img: '/src/assets/imgs/yt.png',
     experience: ['前端軟體工程師'],
     portrait: ''
   },
   {
     title: '劉珊珊',
-    img: '/src/assets/imgs/Savana.png',
+    img: '/src/assets/imgs/33.png',
     experience: ['專案經理'],
     portrait: ''
   }
@@ -92,10 +92,10 @@ const members = [
     </section>
     <div class="hr-line"></div>
     <!-- 解決方案 -->
-    <section id="solutions" class="solutions-section  section-container">
-      <h2 class="fs-secondary-heading ">解決方案</h2>
+    <section id="solutions" class="solutions-section section-container">
+      <h2 class="fs-secondary-heading">解決方案</h2>
       <div class="split solution-split">
-        <div class="solution-content">
+        <div class="solution-content solution-left-content">
           <h2 class="solution-item-title">轉換引擎</h2>
           <div class="solution-desc">
             解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
@@ -113,7 +113,7 @@ const members = [
         <div class="solution-image engine-img hide-desktop">
           <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
         </div>
-        <div class="solution-content">
+        <div class="solution-content solution-right-content">
           <h2 class="solution-item-title">FHIR資料實務應用</h2>
           <div class="solution-desc">
             導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
@@ -151,22 +151,24 @@ const members = [
     <!-- 關於我們 -->
     <section id="about" class="section members section-container">
       <h2 class="fs-secondary-heading">關於我們</h2>
-      <p>
+      <p class="about-content">
         我們是發源於醫學中心的醫療資訊團隊，致力於建構便捷醫療資訊系統與醫療資料的應用。隨著電子健康記錄（EHR）系統的普及，大量醫療資料被創建，但由於格式不統一和系統不兼容，這些資料的價值受限，造成資訊孤島，影響資料的有效利用和跨機構共享。
         FHIR（快速醫療資訊資源）標準是解決資料互通性問題的關鍵，但將非FHIR格式資料轉換為FHIR格式是一項技術挑戰。我們開發了「醫療資料智慧互通平台：生成式AI
         FHIR轉換引擎」，自動且準確地將各種格式的醫療資料轉換為FHIR格式，提升資料利用率，促進資料共享，並提升醫療產業的服務質量和效率。我們旨在提供快速、準確、無縫的資料轉換解決方案，推動醫療行業進步。
       </p>
     </section>
     <!-- 團隊介紹 -->
-    <section id="team" class="section section-container">
-      <h2 class="fs-secondary-heading">團隊介紹</h2>
-      <div class="members-content">
-        <div v-for="(member, index) in members" class="member" :key="index">
-          <img class="member-portrait" :src="member.img" :alt="member.title" />
-          <h3 class="member-title">{{ member.title }}</h3>
-          <ul>
-            <li v-for="(exp, expIndex) in member.experience" :key="expIndex">{{ exp }}</li>
-          </ul>
+    <section id="team" class="section teams">
+      <div class="section-container">
+        <h2 class="fs-secondary-heading">團隊介紹</h2>
+        <div class="members-content">
+          <div v-for="(member, index) in members" class="member" :key="index">
+            <img class="member-portrait" :src="member.img" :alt="member.title" />
+            <h3 class="member-title">{{ member.title }}</h3>
+            <ul>
+              <li v-for="(exp, expIndex) in member.experience" :key="expIndex">{{ exp }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -202,6 +204,10 @@ const members = [
   height: 286.84px;
 } */
 
+.about-content {
+  max-width: 1000px;
+}
+
 .solutions-section {
   margin-top: var(--spacing-600);
 }
@@ -225,6 +231,12 @@ const members = [
   /* border-bottom: 2px solid var(--clr-accent-400); */
 }
 
+.solution-image {
+  /* border: solid 1px black; */
+  background-color: var(--clr-light);
+  /* padding: 1rem; */
+}
+
 .solution-desc::after {
   content: '';
   position: absolute;
@@ -233,6 +245,14 @@ const members = [
   height: 1px;
   width: 95%;
   border-bottom: 2px solid var(--clr-accent-400);
+}
+
+.solution-left-content {
+  padding-right: 35px;
+}
+
+.solution-right-content {
+  padding-left: 35px;
 }
 
 .section {
@@ -269,12 +289,6 @@ const members = [
   /* padding: var(--spacing-600); */
 }
 
-.solution-image {
-  /* border: solid 1px black; */
-  background-color: var(--clr-light);
-  /* padding: 1rem; */
-}
-
 .engine-img {
   padding-right: var(--spacing-300);
   padding-left: 1.25rem;
@@ -292,6 +306,7 @@ const members = [
 
 .fs-secondary-heading {
   margin-bottom: var(--spacing-500);
+  text-align: center;
 }
 
 .members-content {
@@ -308,17 +323,33 @@ const members = [
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.teams {
+  background: rgb(246, 246, 247);
+  background: linear-gradient(
+    0deg,
+    rgba(246, 246, 247, 1) 0%,
+    rgba(255, 255, 255, 1) 49%,
+    rgba(246, 246, 247, 1) 100%
+  );
+}
+
+.members {
+  margin-top: 100px;
 }
 
 .member-portrait {
-  width: 160px;
-  object-fit: cover;
-  height: 250px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 260px;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .member-title {
-  margin-top: 0.5rem;
+  margin-top: 1.2rem;
   font-size: var(--fs-500);
 }
 
@@ -356,6 +387,14 @@ const members = [
 
 /* 平板樣式 */
 @media (max-width: 768px) {
+  .solution-left-content {
+    padding-right: 0;
+  }
+
+  .solution-right-content {
+    padding-left: 0;
+  }
+
   .solutions-content {
     flex-direction: column;
   }
