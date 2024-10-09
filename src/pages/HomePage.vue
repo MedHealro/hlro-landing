@@ -17,7 +17,7 @@ const setCommentMsg = () => {
 const members = [
   {
     title: '陳俊佑 顧問',
-    img: '/src/assets/imgs/jim.png',
+    img: '/src/assets/imgs/Jim.png',
     experience: [''],
     portrait: ''
   },
@@ -35,25 +35,25 @@ const members = [
   },
   {
     title: '陳禹儒 CTO',
-    img: '/src/assets/imgs/aru.png',
+    img: '/src/assets/imgs/Aru.png',
     experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
     title: '黃大煒 CIO',
-    img: '/src/assets/imgs/dave.png',
+    img: '/src/assets/imgs/Dave.png',
     experience: ['後端軟體工程師'],
     portrait: ''
   },
   {
     title: '林映如 總經理',
-    img: '/src/assets/imgs/eve.png',
+    img: '/src/assets/imgs/Eve.png',
     experience: ['前端軟體工程師'],
     portrait: ''
   },
   {
     title: '陳正傑 顧問',
-    img: '/src/assets/imgs/david.png',
+    img: '/src/assets/imgs/David.png',
     experience: ['全端軟體工程師'],
     portrait: ''
   },
@@ -67,6 +67,12 @@ const members = [
     title: '劉珊珊',
     img: '/src/assets/imgs/33.png',
     experience: ['專案經理'],
+    portrait: ''
+  },
+  {
+    title: 'Cindy',
+    img: '/src/assets/imgs/cindy.png',
+    experience: ['秘書'],
     portrait: ''
   }
 ]
