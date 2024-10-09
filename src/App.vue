@@ -4,7 +4,6 @@ import { ref } from 'vue'
 
 import Modal from '@/components/Modal.vue'
 import MainFooter from '@/components/MainFooter.vue'
-import ContactUs from '@/components/ContactUs.vue'
 
 const showMobileNav = ref(false)
 
@@ -79,7 +78,7 @@ const toggleMobileNav = () => {
 <style scoped>
 .logo {
   width: 7rem;
-  height: 7rem;
+  height: 80px;
 }
 
 .primary-header {
@@ -93,6 +92,10 @@ const toggleMobileNav = () => {
   color: var(--clr-primary-400);
   display: flex;
   align-items: center;
+  max-width: 1200px;
+  padding: 0;
+  justify-content: space-between;
+  width: auto;
 }
 
 .nav-wrapper a:visited {
@@ -102,6 +105,7 @@ const toggleMobileNav = () => {
 .primary-nav {
   padding: var(--spacing-300);
   margin-top: 0.5rem;
+  padding-right: 0;
 }
 
 .nav-list {
@@ -117,8 +121,14 @@ const toggleMobileNav = () => {
 .mobile-nav-toggle {
   display: none;
 }
+@media (max-width: 1250px) {
+  .nav-wrapper {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
 
-@media (max-width: 50em) {
+@media (max-width: 768px) {
   .primary-header {
     margin-top: var(--spacing-400);
   }
@@ -153,6 +163,8 @@ const toggleMobileNav = () => {
 
   .nav-wrapper {
     justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .mobile-nav-toggle {

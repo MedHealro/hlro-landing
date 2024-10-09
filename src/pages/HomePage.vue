@@ -16,41 +16,72 @@ const setCommentMsg = () => {
 
 const members = [
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '陳俊佑 顧問',
+    img: '/src/assets/imgs/Jim.png',
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '江和原 COO',
+    img: '/src/assets/imgs/jiang.png',
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '王德士 VP',
+    img: '/src/assets/imgs/wang.png',
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '陳禹儒 CTO',
+    img: '/src/assets/imgs/Aru.png',
+    experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '黃大煒 CIO',
+    img: '/src/assets/imgs/Dave.png',
+    experience: ['後端軟體工程師'],
     portrait: ''
   },
   {
-    title: '陳俊佑 CEO',
-    experience: ['萬芳醫院放射腫瘤科專任主治醫師', '臺北癌症中心Watson for Oncology專案負責人'],
+    title: '林映如 總經理',
+    img: '/src/assets/imgs/Eve.png',
+    experience: ['前端軟體工程師'],
+    portrait: ''
+  },
+  {
+    title: '陳正傑 顧問',
+    img: '/src/assets/imgs/David.png',
+    experience: ['全端軟體工程師'],
+    portrait: ''
+  },
+  {
+    title: '陳毓婷 顧問',
+    img: '/src/assets/imgs/yt.png',
+    experience: ['前端軟體工程師'],
+    portrait: ''
+  },
+  {
+    title: '劉珊珊',
+    img: '/src/assets/imgs/33.png',
+    experience: ['專案經理'],
+    portrait: ''
+  },
+  {
+    title: 'Cindy',
+    img: '/src/assets/imgs/cindy.png',
+    experience: ['秘書'],
     portrait: ''
   }
 ]
 </script>
 
 <template>
-  <main>
-    <section class="section">
+  <main class="main-container">
+    <!-- AI 轉換引擎 -->
+    <section class="section section-container">
       <div class="split hero">
         <div>
           <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
@@ -65,10 +96,12 @@ const members = [
         </div>
       </div>
     </section>
-    <section id="solutions" class="solutions-section engine">
-      <h2 class="fs-secondary-heading solutions-title">解決方案</h2>
+    <div class="hr-line"></div>
+    <!-- 解決方案 -->
+    <section id="solutions" class="solutions-section section-container">
+      <h2 class="fs-secondary-heading">解決方案</h2>
       <div class="split solution-split">
-        <div class="solution-content">
+        <div class="solution-content solution-left-content">
           <h2 class="solution-item-title">轉換引擎</h2>
           <div class="solution-desc">
             解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
@@ -80,18 +113,19 @@ const members = [
         </div>
       </div>
     </section>
-    <section class="solutions-section applied">
+    <!-- FHIR 資料實務 -->
+    <section class="solutions-section applied section-container">
       <div class="split solution-split">
-        <div class="solution-image applied-img hide-desktop">
+        <div class="solution-image engine-img hide-desktop">
           <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
         </div>
-        <div class="solution-content">
+        <div class="solution-content solution-right-content">
           <h2 class="solution-item-title">FHIR資料實務應用</h2>
           <div class="solution-desc">
             導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
           </div>
         </div>
-        <div class="solution-image applied-img hide-mobile">
+        <div class="solution-image engine-img hide-mobile">
           <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
         </div>
       </div>
@@ -120,27 +154,32 @@ const members = [
         </div>
       </div>
     </section> -->
-    <section id="about" class="section members">
+    <!-- 關於我們 -->
+    <section id="about" class="section members section-container">
       <h2 class="fs-secondary-heading">關於我們</h2>
-      <p>
+      <p class="about-content">
         我們是發源於醫學中心的醫療資訊團隊，致力於建構便捷醫療資訊系統與醫療資料的應用。隨著電子健康記錄（EHR）系統的普及，大量醫療資料被創建，但由於格式不統一和系統不兼容，這些資料的價值受限，造成資訊孤島，影響資料的有效利用和跨機構共享。
         FHIR（快速醫療資訊資源）標準是解決資料互通性問題的關鍵，但將非FHIR格式資料轉換為FHIR格式是一項技術挑戰。我們開發了「醫療資料智慧互通平台：生成式AI
         FHIR轉換引擎」，自動且準確地將各種格式的醫療資料轉換為FHIR格式，提升資料利用率，促進資料共享，並提升醫療產業的服務質量和效率。我們旨在提供快速、準確、無縫的資料轉換解決方案，推動醫療行業進步。
       </p>
     </section>
-    <section id="team" class="section">
-      <h2 class="fs-secondary-heading">團隊介紹</h2>
-      <div class="members-content">
-        <div v-for="(member, index) in members" class="member" :key="index">
-          <img class="member-portrait" src="@/assets/imgs/mirror.svg" alt="" />
-          <h3 class="member-title">{{ member.title }}</h3>
-          <ul>
-            <li v-for="(exp, expIndex) in member.experience" :key="expIndex">{{ exp }}</li>
-          </ul>
+    <!-- 團隊介紹 -->
+    <section id="team" class="section teams">
+      <div class="section-container">
+        <h2 class="fs-secondary-heading">團隊介紹</h2>
+        <div class="members-content">
+          <div v-for="(member, index) in members" class="member" :key="index">
+            <img class="member-portrait" :src="member.img" :alt="member.title" />
+            <h3 class="member-title">{{ member.title }}</h3>
+            <ul>
+              <li v-for="(exp, expIndex) in member.experience" :key="expIndex">{{ exp }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
-    <section id="contact-us" class="section">
+    <!-- 聯絡我們 -->
+    <section id="contact-us" class="section section-container">
       <h2 class="fs-secondary-heading">聯絡我們</h2>
       <ContactUs />
     </section>
@@ -148,6 +187,12 @@ const members = [
 </template>
 
 <style scoped>
+.main-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .hide-mobile {
   display: none;
 }
@@ -164,6 +209,10 @@ const members = [
   background-color: var(--clr-light);
   height: 286.84px;
 } */
+
+.about-content {
+  max-width: 1000px;
+}
 
 .solutions-section {
   margin-top: var(--spacing-600);
@@ -188,6 +237,12 @@ const members = [
   /* border-bottom: 2px solid var(--clr-accent-400); */
 }
 
+.solution-image {
+  /* border: solid 1px black; */
+  background-color: var(--clr-light);
+  /* padding: 1rem; */
+}
+
 .solution-desc::after {
   content: '';
   position: absolute;
@@ -198,8 +253,24 @@ const members = [
   border-bottom: 2px solid var(--clr-accent-400);
 }
 
+.solution-left-content {
+  padding-right: 35px;
+}
+
+.solution-right-content {
+  padding-left: 35px;
+}
+
 .section {
   scroll-margin-top: -144px;
+}
+
+.section-container {
+  max-width: 1200px;
+  padding: 0;
+  margin: auto;
+  width: auto;
+  margin-top: 75px;
 }
 
 .split.hero {
@@ -221,13 +292,7 @@ const members = [
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--spacing-600);
-}
-
-.solution-image {
-  /* border: solid 1px black; */
-  background-color: var(--clr-light);
-  /* padding: 1rem; */
+  /* padding: var(--spacing-600); */
 }
 
 .engine-img {
@@ -247,27 +312,50 @@ const members = [
 
 .fs-secondary-heading {
   margin-bottom: var(--spacing-500);
+  text-align: center;
 }
 
 .members-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   justify-content: space-around;
+  max-width: 1200px;
 }
 
 .member {
+  flex: 1 1 calc(100% / 3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.teams {
+  background: rgb(246, 246, 247);
+  background: linear-gradient(
+    0deg,
+    rgba(246, 246, 247, 1) 0%,
+    rgba(255, 255, 255, 1) 49%,
+    rgba(246, 246, 247, 1) 100%
+  );
+}
+
+.members {
+  margin-top: 100px;
 }
 
 .member-portrait {
-  width: 12em;
+  width: 260px;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .member-title {
+  margin-top: 1.2rem;
   font-size: var(--fs-500);
 }
 
@@ -289,7 +377,30 @@ const members = [
   width: 1.5em;
 }
 
-@media (max-width: 50em) {
+.hr-line {
+  border-top: 10px solid var(--clr-primary-400);
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+/* 小於桌面螢幕尺寸 */
+@media (max-width: 1250px) {
+  .section-container {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+/* 平板樣式 */
+@media (max-width: 768px) {
+  .solution-left-content {
+    padding-right: 0;
+  }
+
+  .solution-right-content {
+    padding-left: 0;
+  }
+
   .solutions-content {
     flex-direction: column;
   }
@@ -299,7 +410,7 @@ const members = [
   }
 
   .split.hero {
-    gap: 10%;
+    gap: 7%;
   }
 
   .hide-desktop {
@@ -323,6 +434,32 @@ const members = [
     padding-top: 0;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .section-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 48px;
+  }
+
+  .member {
+    flex: 1 1 50%;
+  }
+
+  .hr-line {
+    margin-bottom: 48px;
+  }
+}
+
+/* 手機樣式 */
+@media (max-width: 480px) {
+  .member {
+    flex: 1 1 100%;
+  }
+
+  .section-container {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 </style>

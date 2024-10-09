@@ -27,6 +27,9 @@ const router = useRouter();
 }
 
 .footer {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto;
   margin-top: var(--spacing-600);
   background-color: var(--clr-dark-500);
   color: var(--clr-light);
