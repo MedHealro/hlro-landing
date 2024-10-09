@@ -3,6 +3,18 @@ import { useRouter } from 'vue-router'
 import ContactUs from '@/components/ContactUs.vue'
 import { useFormStore } from '@/stores/formStore'
 
+// Members' Photos
+import jim from '@/assets/imgs/jim.png';
+import jiang from '@/assets/imgs/jiang.png';
+import wang from '@/assets/imgs/wang.png';
+import aru from '@/assets/imgs/aru.png';
+import dave from '@/assets/imgs/dave.png';
+import eve from '@/assets/imgs/eve.png';
+import david from '@/assets/imgs/david.png';
+import yt from '@/assets/imgs/yt.png';
+import shan from '@/assets/imgs/33.png';
+import cindy from '@/assets/imgs/cindy.png';
+
 const router = useRouter()
 const formStore = useFormStore()
 
@@ -14,64 +26,67 @@ const setCommentMsg = () => {
   router.push('#contact-us')
 }
 
+/**
+ * 團隊成員介紹
+ */
 const members = [
   {
     title: '陳俊佑 顧問',
-    img: '/src/assets/imgs/Jim.png',
+    img: jim,
     experience: [''],
     portrait: ''
   },
   {
     title: '江和原 COO',
-    img: '/src/assets/imgs/jiang.png',
+    img: jiang,
     experience: [''],
     portrait: ''
   },
   {
     title: '王德士 VP',
-    img: '/src/assets/imgs/wang.png',
+    img: wang,
     experience: [''],
     portrait: ''
   },
   {
     title: '陳禹儒 CTO',
-    img: '/src/assets/imgs/Aru.png',
+    img: aru,
     experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
     title: '黃大煒 CIO',
-    img: '/src/assets/imgs/Dave.png',
+    img: dave,
     experience: ['後端軟體工程師'],
     portrait: ''
   },
   {
     title: '林映如 總經理',
-    img: '/src/assets/imgs/Eve.png',
+    img: eve,
     experience: ['前端軟體工程師'],
     portrait: ''
   },
   {
     title: '陳正傑 顧問',
-    img: '/src/assets/imgs/David.png',
+    img: david,
     experience: ['全端軟體工程師'],
     portrait: ''
   },
   {
     title: '陳毓婷 顧問',
-    img: '/src/assets/imgs/yt.png',
+    img: yt,
     experience: ['前端軟體工程師'],
     portrait: ''
   },
   {
     title: '劉珊珊',
-    img: '/src/assets/imgs/33.png',
+    img: shan,
     experience: ['專案經理'],
     portrait: ''
   },
   {
     title: 'Cindy',
-    img: '/src/assets/imgs/cindy.png',
+    img: cindy,
     experience: ['秘書'],
     portrait: ''
   }
