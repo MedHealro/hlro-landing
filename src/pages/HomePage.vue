@@ -96,18 +96,20 @@ const members = [
 <template>
   <main class="main-container">
     <!-- AI 轉換引擎 -->
-    <section class="section section-container">
-      <div class="split hero">
-        <div>
-          <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
-          <p class="hero-description">
-            透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
-            應用生態接軌，達成資料實務及臨床應用。
-          </p>
-          <button class="button hero-button" @click="setCommentMsg">預約產品說明</button>
-        </div>
-        <div>
-          <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
+    <section class="section hero-container">
+      <div class="section-container">
+        <div class="split hero">
+          <div>
+            <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
+            <p class="hero-description">
+              透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
+              應用生態接軌，達成資料實務及臨床應用。
+            </p>
+            <button class="button hero-button" @click="setCommentMsg">預約產品說明</button>
+          </div>
+          <div>
+            <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
+          </div>
         </div>
       </div>
     </section>
@@ -115,11 +117,6 @@ const members = [
     <!-- 解決方案 -->
     <section id="solutions" class="solutions-section section-container">
       <h3 class="fs-secondary-heading">解決方案</h3>
-      <div class="split solution-split">
-        <div class="solution-image-container">
-          <img class="solution-image" src="@/assets/imgs/solutions.png" alt="" />
-        </div>
-      </div>
       <div class="split solution-split solution-container">
         <div class="solution-content">
           <h2 class="solution-item-title">轉換引擎</h2>
@@ -133,6 +130,11 @@ const members = [
           <div class="solution-desc">
             導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
           </div>
+        </div>
+      </div>
+      <div class="split solution-split">
+        <div class="solution-image-container">
+          <img class="solution-image" src="@/assets/imgs/solutions.png" alt="" />
         </div>
       </div>
     </section>
@@ -185,15 +187,6 @@ const members = [
   margin-top: 22px;
 }
 
-/* .solutions-img-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 46px;
-  background-color: var(--clr-light);
-  height: 286.84px;
-} */
-
 .about-content {
   max-width: 1000px;
 }
@@ -207,10 +200,6 @@ const members = [
   padding-bottom: 0;
 }
 
-.solution-split {
-  /* padding-top: var(--spacing-500); */
-}
-
 .engine {
   border-top: 10px solid var(--clr-primary-400);
 }
@@ -218,27 +207,27 @@ const members = [
 .solution-desc {
   position: relative;
   height: 100%;
-  padding-bottom: var(--spacing-500);
-  /* border-bottom: 2px solid var(--clr-accent-400); */
+  padding-bottom: 2rem;
 }
 
 .solution-image {
-  width: 100%;
+  width: 80%;
+  margin: auto;
 }
 
 .solution-image-container {
-  /* border: solid 1px black; */
   background-color: var(--clr-light);
-  /* padding: 1rem; */
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 .solution-desc::after {
   content: '';
   position: absolute;
-  left: 1%;
+  left: 0;
   bottom: 0;
   height: 1px;
-  width: 95%;
+  width: 100%;
   border-bottom: 2px solid var(--clr-accent-400);
 }
 
@@ -263,12 +252,12 @@ const members = [
 }
 
 .split.hero {
+  margin: auto;
   grid-auto-columns: 1fr 2fr;
   gap: 5%;
 }
 
 .hero-img {
-  border: 0.3rem solid var(--clr-accent-400);
   border-radius: 0.25em;
 }
 
@@ -286,6 +275,22 @@ const members = [
   flex-direction: column;
   justify-content: center;
   padding: var(--spacing-400);
+  padding-top: 0;
+  flex: 1;
+}
+
+.hero-container {
+  background: rgb(246, 246, 247);
+  background: linear-gradient(
+    0deg,
+    rgba(246, 246, 247, 1) 0%,
+    rgba(255, 255, 255, 1) 49%,
+    rgba(246, 246, 247, 1) 100%
+  );
+  margin: 0;
+  padding: 0;
+  padding-bottom: 75px;
+  width: 100%;
 }
 
 .engine-img {
@@ -377,7 +382,7 @@ const members = [
 
 .hr-line {
   border-top: 10px solid var(--clr-primary-400);
-  margin-top: 75px;
+  /* margin-top: 75px; */
   margin-bottom: 75px;
 }
 
