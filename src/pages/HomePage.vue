@@ -217,7 +217,7 @@ const members = [
   width: 100%;
 }
 
-.solution-desc::after {
+/* .solution-desc::after {
   content: '';
   position: absolute;
   left: 0;
@@ -225,7 +225,7 @@ const members = [
   height: 1px;
   width: 100%;
   border-bottom: 2px solid var(--clr-accent-400);
-}
+} */
 
 .solution-left-content {
   padding-right: 35px;
