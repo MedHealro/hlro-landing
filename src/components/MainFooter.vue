@@ -7,17 +7,13 @@ const router = useRouter()
 <template>
   <div class="container footer">
     <nav class="footer-nav">
-      <!-- <RouterLink :to="{ path: '/' }" class="nav-item">
-        <img alt="logo" class="logo" src="@/assets/imgs/healro-logo.svg"
-      /></RouterLink> -->
       <div></div>
       <div class="company-terms">
         <div>© 2023-2024 資慧科技股份有限公司</div>
-        <!-- <button class="footer-button" @click="router.push('terms')">服務條款</button> -->
-        <button class="footer-button" @click="router.push('privacy')">隱私權政策</button>
         <a href="https://maps.app.goo.gl/AA6njBD9UTtYRdLk7" target="_blank" class="footer-button"
           >台北市松山區八德路二段374號二樓之8
         </a>
+        <button class="footer-button" @click="router.push('privacy')">隱私權政策</button>
       </div>
     </nav>
   </div>
