@@ -191,10 +191,6 @@ const members = [
   max-width: 1000px;
 }
 
-.solutions-section {
-  margin-top: var(--spacing-600);
-}
-
 .solutions-title {
   padding: var(--spacing-600);
   padding-bottom: 0;
@@ -259,6 +255,7 @@ const members = [
 
 .hero-img {
   border-radius: 0.25em;
+  /* box-shadow: 5px 5px 50px #c9c9c9; */
 }
 
 .hero-description,
@@ -268,6 +265,12 @@ const members = [
 
 .solution-container {
   margin-top: 35px;
+  max-width: 1050px;
+  margin: auto;
+}
+
+.solutions-section {
+  margin-top: 100px;
 }
 
 .solution-content {
