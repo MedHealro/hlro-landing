@@ -13,12 +13,13 @@ const submitForm = async () => {
   formStore.handleSubmit()
   reset('contactForm')
 }
+
 </script>
 
 <template>
   <div class="split">
     <div>
-      <h1 class="fs-primary-heading">預約產品說明</h1>
+      <h3 class="contact-title">預約產品說明</h3>
       <p class="booking-description">
         感謝您對我們產品的關注！若您想進一步預約產品說明，請您填寫預約表單。我們的專業團隊將儘快與您聯繫，安排產品說明服務。
       </p>
@@ -53,7 +54,7 @@ const submitForm = async () => {
       :actions="false"
       #default="{ value }"
       @submit="submitForm"
-      :errors="['請確認表單是否填寫完成，謝謝!']"
+      incomplete-message="請確認表單是否填寫完成，謝謝!"
     >
       <FormKit
         type="text"
@@ -147,6 +148,10 @@ const submitForm = async () => {
 .contact-icon {
   width: 1.5em;
   margin-right: 0.3rem;
+}
+
+.contact-title {
+  font-size: var(--fs-600);
 }
 
 .ext-link {

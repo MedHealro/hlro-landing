@@ -22,11 +22,11 @@ const router = createRouter({
       name: 'home',
       component: HomePage
     },
-    {
-      path: '/terms',
-      name: 'terms',
-      component: TermsPage
-    },
+    // {
+    //   path: '/terms',
+    //   name: 'terms',
+    //   component: TermsPage
+    // },
     {
       path: '/privacy',
       name: 'privacy',
