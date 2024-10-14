@@ -284,12 +284,7 @@ const members = [
 
 .hero-container {
   background: rgb(246, 246, 247);
-  background: linear-gradient(
-    0deg,
-    rgba(246, 246, 247, 1) 0%,
-    rgba(255, 255, 255, 1) 49%,
-    rgba(246, 246, 247, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(242,242,242,1) 49%, rgba(227,227,227,1) 100%);
   margin: 0;
   padding: 0;
   padding-bottom: 75px;
