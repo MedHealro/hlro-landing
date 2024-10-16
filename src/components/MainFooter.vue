@@ -1,19 +1,18 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 </script>
 
 <template>
   <div class="container footer">
     <nav class="footer-nav">
-      <!-- <RouterLink :to="{ path: '/' }" class="nav-item">
-        <img alt="logo" class="logo" src="@/assets/imgs/healro-logo.svg"
-      /></RouterLink> -->
       <div></div>
       <div class="company-terms">
         <div>© 2023-2024 資慧科技股份有限公司</div>
-        <button class="footer-button" @click="router.push('terms')">服務條款</button>
+        <a href="https://maps.app.goo.gl/AA6njBD9UTtYRdLk7" target="_blank" class="footer-button"
+          >台北市松山區八德路二段374號二樓之8
+        </a>
         <button class="footer-button" @click="router.push('privacy')">隱私權政策</button>
       </div>
     </nav>
@@ -39,21 +38,23 @@ const router = useRouter();
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
+  flex-wrap: wrap;
 }
 
 .company-terms {
   display: flex;
   flex-direction: column;
   align-items: end;
+  gap: 0.25rem;
 }
 
 .footer-button {
+  text-decoration: none;
   background-color: transparent;
   color: #ffffff;
   border: none;
   cursor: pointer;
   font-size: 1em;
 }
+
 </style>
-
-

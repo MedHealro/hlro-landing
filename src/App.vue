@@ -116,6 +116,7 @@ const toggleMobileNav = () => {
 
 .nav-item {
   text-decoration: none;
+  color: inherit;
 }
 
 .mobile-nav-toggle {
