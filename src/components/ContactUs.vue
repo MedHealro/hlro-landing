@@ -29,7 +29,7 @@ const submitForm = async () => {
             <img class="contact-icon" src="@/assets/imgs/mail-letter-svgrepo-com.svg" alt="" />
             <span>
               <a href="mailto:support@healro.com?subject=官網聯繫" class="ext-link"
-                >support@healro.com
+                >support@healro.ai
               </a>
             </span>
           </li>
