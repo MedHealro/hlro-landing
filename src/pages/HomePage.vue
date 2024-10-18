@@ -4,16 +4,16 @@ import ContactUs from '@/components/ContactUs.vue'
 import { useFormStore } from '@/stores/formStore'
 
 // Members' Photos
-import jim from '@/assets/imgs/jim.png';
-import jiang from '@/assets/imgs/jiang.png';
-import wang from '@/assets/imgs/wang.png';
-import aru from '@/assets/imgs/aru.png';
-import dave from '@/assets/imgs/dave.png';
-import eve from '@/assets/imgs/eve.png';
-import david from '@/assets/imgs/david.png';
-import yt from '@/assets/imgs/yt.png';
-import shan from '@/assets/imgs/33.png';
-import cindy from '@/assets/imgs/cindy.png';
+import jim from '@/assets/imgs/jim.png'
+import jiang from '@/assets/imgs/jiang.png'
+import wang from '@/assets/imgs/wang.png'
+import aru from '@/assets/imgs/aru.png'
+import dave from '@/assets/imgs/dave.png'
+import eve from '@/assets/imgs/eve.png'
+import david from '@/assets/imgs/david.png'
+import yt from '@/assets/imgs/yt.png'
+import shan from '@/assets/imgs/33.png'
+import cindy from '@/assets/imgs/cindy.png'
 
 const router = useRouter()
 const formStore = useFormStore()
@@ -31,63 +31,63 @@ const setCommentMsg = () => {
  */
 const members = [
   {
-    title: '陳俊佑 顧問',
-    img: jim,
+    title: '林映如 總經理',
+    img: eve,
     experience: [''],
     portrait: ''
   },
   {
-    title: '江和原 COO',
+    title: '江和原 營運長',
     img: jiang,
     experience: [''],
     portrait: ''
   },
   {
-    title: '王德士 VP',
+    title: '王德士 副總經理',
     img: wang,
     experience: [''],
     portrait: ''
   },
   {
-    title: '陳禹儒 CTO',
+    title: '陳禹儒 技術長',
     img: aru,
-    experience: ['全端軟體工程師'],
+    experience: [''],
     portrait: ''
   },
   {
-    title: '黃大煒 CIO',
+    title: '黃大煒 資訊長',
     img: dave,
-    experience: ['後端軟體工程師'],
+    experience: [''],
     portrait: ''
   },
   {
-    title: '林映如 總經理',
-    img: eve,
-    experience: ['前端軟體工程師'],
+    title: '陳俊佑醫師 臨床顧問',
+    img: jim,
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳正傑 顧問',
+    title: '陳正傑 技術顧問',
     img: david,
-    experience: ['全端軟體工程師'],
+    experience: [''],
     portrait: ''
   },
   {
-    title: '陳毓婷 顧問',
+    title: '陳毓婷 技術顧問',
     img: yt,
-    experience: ['前端軟體工程師'],
+    experience: [''],
     portrait: ''
   },
   {
-    title: '劉珊珊',
+    title: '劉珊珊 產品經理',
     img: shan,
-    experience: ['專案經理'],
+    experience: [''],
     portrait: ''
   },
   {
-    title: 'Cindy',
+    title: '彭馨玉 營運專員',
     img: cindy,
-    experience: ['秘書'],
+    experience: [''],
     portrait: ''
   }
 ]
@@ -96,79 +96,50 @@ const members = [
 <template>
   <main class="main-container">
     <!-- AI 轉換引擎 -->
-    <section class="section section-container">
-      <div class="split hero">
-        <div>
-          <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
-          <p class="hero-description">
-            透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
-            應用生態接軌，達成資料實務及臨床應用。
-          </p>
-          <button class="button hero-button" @click="setCommentMsg">預約產品說明</button>
-        </div>
-        <div>
-          <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
+    <section class="section hero-container">
+      <div class="section-container">
+        <div class="split hero">
+          <div>
+            <h1 class="fs-primary-heading">生成式 AI 病歷資料轉換引擎</h1>
+            <p class="hero-description">
+              透過 AI 輔助快速將醫療資料轉換成 FHIR 標準格式，與國際 FHIR
+              應用生態接軌，達成資料實務及臨床應用。
+            </p>
+            <button class="button hero-button" @click="setCommentMsg">預約產品說明</button>
+          </div>
+          <div>
+            <img src="@/assets/imgs/translate_ui.png" alt="" class="hero-img" />
+          </div>
         </div>
       </div>
     </section>
     <div class="hr-line"></div>
     <!-- 解決方案 -->
     <section id="solutions" class="solutions-section section-container">
-      <h2 class="fs-secondary-heading">解決方案</h2>
-      <div class="split solution-split">
-        <div class="solution-content solution-left-content">
+      <h3 class="fs-secondary-heading">解決方案</h3>
+      <div class="split solution-split solution-container">
+        <div class="solution-content">
           <h2 class="solution-item-title">轉換引擎</h2>
           <div class="solution-desc">
             解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
             開發及維護所帶來的作業負擔。
           </div>
         </div>
-        <div class="solution-image engine-img">
-          <img class="" src="@/assets/imgs/translate-engine.png" alt="" />
+        <div class="solution-content">
+          <h3 class="solution-item-title">FHIR資料實務應用</h3>
+          <div class="solution-desc">
+            導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
+          </div>
+        </div>
+      </div>
+      <div class="split solution-split">
+        <div class="solution-image-container">
+          <img class="solution-image" src="@/assets/imgs/solutions.png" alt="" />
         </div>
       </div>
     </section>
     <!-- FHIR 資料實務 -->
-    <section class="solutions-section applied section-container">
-      <div class="split solution-split">
-        <div class="solution-image engine-img hide-desktop">
-          <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
-        </div>
-        <div class="solution-content solution-right-content">
-          <h2 class="solution-item-title">FHIR資料實務應用</h2>
-          <div class="solution-desc">
-            導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
-          </div>
-        </div>
-        <div class="solution-image engine-img hide-mobile">
-          <img class="" src="@/assets/imgs/applied-solutions.png" alt="" />
-        </div>
-      </div>
-    </section>
-    <!-- <section id="solutions" class="section solutions">
-      <h2 class="fs-secondary-heading solutions-title">解決方案</h2>
-      <div class="solutions-content">
-        <div class="solution-item">
-          <h2 class="solution-item-title fs-lg">轉換引擎</h2>
-          <div class="solution-item-desc">
-            解決醫療資料未標準化的困局，強化醫療資料的互通性及可用性，擺脫客製化 API
-            開發及維護所帶來的作業負擔。
-          </div>
-          <div class="engine-img-wrapper">
-            <img class="solutions-img-engine" src="@/assets/imgs/translate-engine.png" alt="" />
-          </div>
-        </div>
-        <div class="solution-item">
-          <h2 class="solution-item-title fs-lg">FHIR資料實務應用</h2>
-          <div class="solution-desc">
-            導入或建置以 FHIR 為基礎的智能應用程式，發揮醫療資料的最大價值。
-          </div>
-          <div class="solutions-img-wrapper">
-            <img class="solutions-img-applied" src="@/assets/imgs/applied-solutions.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </section> -->
+    <section class="solutions-section applied section-container"></section>
     <!-- 關於我們 -->
     <section id="about" class="section members section-container">
       <h2 class="fs-secondary-heading">關於我們</h2>
@@ -216,30 +187,13 @@ const members = [
   margin-top: 22px;
 }
 
-/* .solutions-img-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 46px;
-  background-color: var(--clr-light);
-  height: 286.84px;
-} */
-
 .about-content {
   max-width: 1000px;
-}
-
-.solutions-section {
-  margin-top: var(--spacing-600);
 }
 
 .solutions-title {
   padding: var(--spacing-600);
   padding-bottom: 0;
-}
-
-.solution-split {
-  /* padding-top: var(--spacing-500); */
 }
 
 .engine {
@@ -248,25 +202,30 @@ const members = [
 
 .solution-desc {
   position: relative;
-  padding-bottom: var(--spacing-500);
-  /* border-bottom: 2px solid var(--clr-accent-400); */
+  height: 100%;
+  padding-bottom: 2rem;
 }
 
 .solution-image {
-  /* border: solid 1px black; */
-  background-color: var(--clr-light);
-  /* padding: 1rem; */
+  width: 80%;
+  margin: auto;
 }
 
-.solution-desc::after {
+.solution-image-container {
+  background-color: var(--clr-light);
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+/* .solution-desc::after {
   content: '';
   position: absolute;
-  left: 1%;
+  left: 0;
   bottom: 0;
   height: 1px;
-  width: 95%;
+  width: 100%;
   border-bottom: 2px solid var(--clr-accent-400);
-}
+} */
 
 .solution-left-content {
   padding-right: 35px;
@@ -289,13 +248,14 @@ const members = [
 }
 
 .split.hero {
+  margin: auto;
   grid-auto-columns: 1fr 2fr;
   gap: 5%;
 }
 
 .hero-img {
-  border: 0.3rem solid var(--clr-accent-400);
   border-radius: 0.25em;
+  /* box-shadow: 5px 5px 50px #c9c9c9; */
 }
 
 .hero-description,
@@ -303,11 +263,33 @@ const members = [
   margin-top: var(--spacing-400);
 }
 
+.solution-container {
+  margin-top: 35px;
+  max-width: 1050px;
+  margin: auto;
+}
+
+.solutions-section {
+  margin-top: 100px;
+}
+
 .solution-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* padding: var(--spacing-600); */
+  padding: var(--spacing-400);
+  padding-top: 0;
+  flex: 1;
+}
+
+.hero-container {
+  background: rgb(246, 246, 247);
+  background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(242,242,242,1) 49%, rgba(231,231,231,1) 100%);
+
+  margin: 0;
+  padding: 0;
+  padding-bottom: 75px;
+  width: 100%;
 }
 
 .engine-img {
@@ -325,7 +307,12 @@ const members = [
   margin-bottom: var(--spacing-300);
 }
 
+.fs-primary-heading {
+  font-size: var(--fs-700);
+}
+
 .fs-secondary-heading {
+  font-size: 2rem;
   margin-bottom: var(--spacing-500);
   text-align: center;
 }
@@ -350,13 +337,17 @@ const members = [
 }
 
 .teams {
+
   background: rgb(246, 246, 247);
-  background: linear-gradient(
+  background: linear-gradient(15deg, rgba(246,246,246,1) 0%, rgba(242,242,242,1) 49%, rgba(231,231,231,1) 100%);
+
+
+  /* background: linear-gradient(
     0deg,
     rgba(246, 246, 247, 1) 0%,
     rgba(255, 255, 255, 1) 49%,
     rgba(246, 246, 247, 1) 100%
-  );
+  );  */
 }
 
 .members {
@@ -394,7 +385,7 @@ const members = [
 
 .hr-line {
   border-top: 10px solid var(--clr-primary-400);
-  margin-top: 75px;
+  /* margin-top: 75px; */
   margin-bottom: 75px;
 }
 
